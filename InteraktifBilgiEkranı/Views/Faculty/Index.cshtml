@@ -1,0 +1,47 @@
+﻿@using EntityLayer.Concrete
+@model List<Faculty>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+
+<div class="col-md-12 my-auto">
+    <h2>Fakülte Yönetim Sayfası</h2>
+    <div>
+        <table class="table table-bordered table-hover mb-0">
+            <tr>
+                <th>#</th>
+                <th>İsim</th>
+                <th>Adres</th>
+                <th>Durum</th>
+                <th>Tarih</th>
+                <th>Aktif Yap</th>
+                <th>Pasif Yap</th>
+                <th>Güncelle</th>
+                <th>Sil</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.FacultyID</td>
+                    <td>@item.FacultyName</td>
+                    <td>@item.FacultyAddress</td>
+                    <td>@item.FacultyStatus</td>
+                    <td>
+                        <div class="time-label">
+                            <span>@(((DateTime)item.FacultyCreationDate).ToString("dd-MM-yyyy"))</span>
+                        </div>
+                    </td>
+                    <td><a href="#" class="btn btn-primary">Aktif Yap</a></td>
+                    <td><a href="#" class="btn btn-warning">Pasif Yap</a></td>
+                    <td><a href="/Faculty/EditFaculty/@item.FacultyID" class="btn btn-info">Güncelle</a></td>
+                    <td><a href="/Faculty/DeleteFaculty/@item.FacultyID" class="btn btn-danger">Sil</a></td>
+                </tr>
+            }
+        </table>
+    </div>
+    <br />
+    <a href="/Faculty/AddFaculty" class="btn btn-success">Yeni Fakülte Yarat</a>
+</div>
+
