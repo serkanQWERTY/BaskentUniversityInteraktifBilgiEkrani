@@ -138,7 +138,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\FacultyController.cs" />
+    <Compile Include="Controllers\NewController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -309,9 +312,17 @@
     <Content Include="Views\Faculty\Index.cshtml" />
     <Content Include="Views\Faculty\AddFaculty.cshtml" />
     <Content Include="Views\Faculty\EditFaculty.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\Department\AddDepartment.cshtml" />
+    <Content Include="Views\Department\EditDepartment.cshtml" />
+    <Content Include="Views\New\Index.cshtml" />
+    <Content Include="Views\New\AddNew.cshtml" />
+    <Content Include="Views\New\EditNew.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Image\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

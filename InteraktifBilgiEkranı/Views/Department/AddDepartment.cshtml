@@ -1,0 +1,48 @@
+﻿@model EntityLayer.Concrete.Department
+
+@{
+    ViewBag.Title = "AddDepartment";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("AddDepartment", "Department", FormMethod.Post))
+{
+    <div class="col-md-12" style="width: 450px">
+        <div class="card-body">
+            <p class="mb-2"><strong>Bölüm Ekleme Sayfası</strong></p>
+
+            <div class="form-group mb-3">
+                @Html.Label("Bölüm Adı")
+                @Html.TextBoxFor(x => x.DepartmentName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.DepartmentName)
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.Label("Bölüm Adresi")
+                @Html.TextBoxFor(x => x.DepartmentAddress, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.DepartmentAddress)
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.Label("Bölüm Durumu")
+                @Html.TextBoxFor(x => x.DepartmentStatus, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.DepartmentStatus)
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.Label("Fakülte Kuruluş Tarihi")
+                @Html.TextBoxFor(x => x.DepartmentCreationDate, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.DepartmentCreationDate)
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.Label("Fakülte")
+                @Html.DropDownListFor(x => x.FacultyID, (List<SelectListItem>)ViewBag.vlf, new
+                { @class = "form-control" })
+            </div>
+            <br />
+            <button class="btn btn-success">Kaydet</button>
+        </div>
+    </div>
+}
+
