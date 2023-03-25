@@ -30,27 +30,12 @@ namespace InteraktifBilgiEkranı.Controllers
         {
             var newValues = Nm.GetList();
             return View(newValues);
-            //return View(db.News.ToList());
         }
 
-        // GET: Sliders/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            New news = db.News.Find(id);
-            if (news == null)
-            {
-                return HttpNotFound();
-            }
-            return View(news);
-        }
         [HttpGet]
-        // GET: Sliders/Create
         public ActionResult AddNew()
         {
+
             List<SelectListItem> valueTv = (from x in Tm.GetList()
                                             select new SelectListItem
                                             {
@@ -99,34 +84,8 @@ namespace InteraktifBilgiEkranı.Controllers
             //    }
             //}
             //return View();
-
         }
-        //////[HttpPost]
-        //////[ValidateAntiForgeryToken]
-        //////public ActionResult AddNew([Bind(Include = "SliderId,Baslik,Aciklama,ResimURL")] New news, HttpPostedFileBase ResimURL)
-        //////{
-        //////    news.NewCreationDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-        //////    if (ModelState.IsValid)
 
-        //////    {
-        //////        if (ResimURL != null)
-        //////        {
-        //////            WebImage img = new WebImage(ResimURL.InputStream);
-        //////            FileInfo imginfo = new FileInfo(ResimURL.FileName);
-
-        //////            string newsimage = Guid.NewGuid().ToString() + imginfo.Extension;
-        //////            img.Resize(1024, 360);
-        //////            img.Save("~/Uploads/Slider/" + newsimage);
-
-        //////            news.NewPath = "/Uploads/Slider/" + newsimage;
-        //////        }
-        //////        db.News.Add(news);
-        //////        db.SaveChanges();
-        //////        return RedirectToAction("Index");
-        //////    }
-
-        //////    return View(news);
-        //////}
         [HttpGet]
         public ActionResult EditNew(int id)
         {
@@ -147,9 +106,10 @@ namespace InteraktifBilgiEkranı.Controllers
                                               ).ToList();
             ViewBag.vlt = valueTv;
             ViewBag.vlu = valueUser;
-            var userValue = Um.GetByID(id);
-            return View(userValue);
+            var newValues = Nm.GetByID(id);
+            return View(newValues);
         }
+
         [HttpPost]
         public ActionResult EditNew(New p)
         {
@@ -157,91 +117,13 @@ namespace InteraktifBilgiEkranı.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: Sliders/Edit/5
-        //public ActionResult EditNew(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    New news = db.News.Find(id);
-        //    if (news == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(news);
-        //}
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult EditNew([Bind(Include = "NewID,NewName,NewCreationDate,İçerik,NewStatus,NewDescription,UserID,TvID")] 
-        //New news, HttpPostedFileBase İçerik, int id)
-        //{
-        //    List<SelectListItem> valueTv = (from x in tm.GetList()
-        //                                    select new SelectListItem
-        //                                    {
-        //                                        Text = x.TvDescription,
-        //                                        Value = x.TvID.ToString()
-        //                                    }
-        //                                     ).ToList();
-        //    List<SelectListItem> valueUser = (from x in um.GetList()
-        //                                      select new SelectListItem
-        //                                      {
-        //                                          Text = x.UserName + " " + x.UserSurname,
-        //                                          Value = x.UserID.ToString()
-
-        //                                      }
-        //                                        ).ToList();
-        //    ViewBag.vlt = valueTv;
-        //    ViewBag.vlu = valueUser;
-        //    if (ModelState.IsValid)
-        //    {
-        //        var s = db.News.Where(x => x.NewID == id).SingleOrDefault();
-        //        if (İçerik != null)
-        //        {
-
-        //            if (System.IO.File.Exists(Server.MapPath(s.NewPath)))
-        //            {
-        //                System.IO.File.Delete(Server.MapPath(s.NewPath));
-        //            }
-        //            WebImage img = new WebImage(İçerik.InputStream);
-        //            FileInfo imginfo = new FileInfo(İçerik.FileName);
-
-        //            string sliderimgname = Guid.NewGuid().ToString() + imginfo.Extension;
-        //            img.Resize(1024, 360);
-        //            img.Save("~/Uploads/Slider/" + sliderimgname);
-
-        //            s.NewPath = "/Uploads/Slider/" + sliderimgname;
-        //        }
-        //        s.NewID = news.NewID;
-        //        s.NewName = news.NewName;
-        //        s.NewCreationDate = news.NewCreationDate;
-        //        s.NewPath = news.NewPath;
-        //        s.NewStatus = news.NewStatus;
-        //        s.NewDescription = news.NewDescription;
-        //        s.TvID = news.TvID;
-        //        s.UserID = news.UserID;
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View(news);
-        //}
         public ActionResult DeleteNew(int id)
         {
             var newValues = Nm.GetByID(id);
             newValues.NewStatus = false;
             Nm.NewDelete(newValues);
             return RedirectToAction("Index");
-        }
-
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

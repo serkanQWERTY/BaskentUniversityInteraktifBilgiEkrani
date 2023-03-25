@@ -49,6 +49,12 @@
                 @Html.Label("Ekran")
                 @Html.DropDownListFor(x => x.TvID, (List<SelectListItem>)ViewBag.vlt,
                 new { @class = "form-control" })
+            </div>       
+            
+
+            <div class="form-group mb-3">
+                @Html.LabelFor(model => model.NewPath, htmlAttributes: new { @class = "control-label col-md" })
+                <input type="file" name="NewPath" class="form-control" required placeholder="Resim Seçiniz" />
             </div>
 
             <br />

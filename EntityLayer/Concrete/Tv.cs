@@ -15,6 +15,7 @@ namespace EntityLayer.Concrete
         public string TvDescription { get; set; }
         [StringLength(1000)]
         public string TvAddress { get; set; }
+        public DateTime TvCreationDate { get; set; }
         public bool TvStatus { get; set; }
 
         public int? DepartmentID { get; set; }

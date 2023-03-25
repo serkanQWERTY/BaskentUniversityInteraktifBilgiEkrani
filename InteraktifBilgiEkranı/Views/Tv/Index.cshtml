@@ -1,0 +1,49 @@
+﻿@using EntityLayer.Concrete
+@model List<Tv>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+
+<div class="col-md-12 my-auto">
+    <h2>Tv Yönetim Sayfası</h2>
+    <div>
+        <table class="table table-bordered table-hover mb-0">
+            <tr>
+                <th>#</th>
+                <th>Açıklama</th>
+                <th>Adres</th>
+                <th>Tarih</th>
+                <th>Durum</th>
+                <th>Bölüm</th>
+                <th>Aktif Yap</th>
+                <th>Pasif Yap</th>
+                <th>Güncelle</th>
+                <th>Sil</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.TvID</td>
+                    <td>@item.TvDescription</td>
+                    <td>@item.TvAddress</td>
+                    <td>
+                        <div class="time-label">
+                            <span>@(((DateTime)item.TvCreationDate).ToString("dd-MM-yyyy"))</span>
+                        </div>
+                    </td>
+                    <td>@item.TvStatus</td>
+                    <td>@item.Department.DepartmentName</td>
+                    <td><a href="#" class="btn btn-primary">Aktif Yap</a></td>
+                    <td><a href="#" class="btn btn-warning">Pasif Yap</a></td>
+                    <td><a href="/Tv/EditTv/@item.TvID" class="btn btn-info">Güncelle</a></td>
+                    <td><a href="/Tv/DeleteTv/@item.TvID" class="btn btn-danger">Sil</a></td>
+                </tr>
+            }
+        </table>
+    </div>
+    <br />
+    <a href="/Tv/AddTv" class="btn btn-success">Yeni Bölüm Yarat</a>
+</div>
+
