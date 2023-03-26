@@ -26,6 +26,7 @@ namespace InteraktifBilgiEkranı.Controllers
         private Context db = new Context();
 
         // GET: Sliders
+        [Authorize]
         public ActionResult Index()
         {
             var newValues = Nm.GetList();
