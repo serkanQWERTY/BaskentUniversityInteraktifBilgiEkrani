@@ -9,11 +9,9 @@ using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
 using BusinessLayer.Concrete;
-using BusinessLayer.ValidationRules;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
-using FluentValidation.Results;
 using InteraktifBilgiEkranı.Controllers;
 
 namespace InteraktifBilgiEkranı.Controllers
@@ -60,9 +58,6 @@ namespace InteraktifBilgiEkranı.Controllers
         [HttpPost]
         public ActionResult AddNew(New p)
         {
-            //NewValidator newValidator = new NewValidator();
-            //ValidationResult results = newValidator.Validate(p);
-
             if (Request.Files.Count > 0)
             {
                 string dosyaadi = Path.GetFileName(Request.Files[0].FileName);
@@ -72,19 +67,8 @@ namespace InteraktifBilgiEkranı.Controllers
                 p.NewPath = "/Image/" + dosyaadi + uzanti;
             }
             p.NewCreationDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-            //if (results.IsValid)
-            //{
             Nm.NewAdd(p);
             return RedirectToAction("Index");
-            //}
-            //else
-            //{
-            //    foreach (var item in results.Errors)
-            //    {
-            //        ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
-            //    }
-            //}
-            //return View();
         }
 
         [HttpGet]

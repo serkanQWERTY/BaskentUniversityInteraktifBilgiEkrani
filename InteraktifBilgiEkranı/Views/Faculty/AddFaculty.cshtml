@@ -13,25 +13,21 @@
             <div class="form-group mb-3">
                 @Html.Label("Fakülte Adı")
                 @Html.TextBoxFor(x => x.FacultyName, new { @class = "form-control" })
-                @Html.ValidationMessageFor(x => x.FacultyName)
             </div>
 
             <div class="form-group mb-3">
                 @Html.Label("Fakülte Adresi")
                 @Html.TextBoxFor(x => x.FacultyAddress, new { @class = "form-control" })
-                @Html.ValidationMessageFor(x => x.FacultyAddress)
             </div>
 
             <div class="form-group mb-3">
                 @Html.Label("Fakülte Durumu")
                 @Html.TextBoxFor(x => x.FacultyStatus, new { @class = "form-control" })
-                @Html.ValidationMessageFor(x => x.FacultyStatus)
             </div>
 
             <div class="form-group mb-3">
                 @Html.Label("Fakülte Kuruluş Tarihi")
                 @Html.TextBoxFor(x => x.FacultyCreationDate, new { @class = "form-control" })
-                @Html.ValidationMessageFor(x => x.FacultyCreationDate)
             </div>
             <br />
             <button class="btn btn-success">Kaydet</button>

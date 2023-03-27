@@ -13,6 +13,7 @@ namespace InteraktifBilgiEkranı.Controllers
     {
         // GET: Faculty
         RoleManager Rm = new RoleManager(new EfRoleDAL());
+        [Authorize]
         public ActionResult Index()
         {
             var facultyValues = Rm.GetList();

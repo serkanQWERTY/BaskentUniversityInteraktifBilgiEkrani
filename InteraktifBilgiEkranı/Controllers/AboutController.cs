@@ -9,6 +9,7 @@ namespace InteraktifBilgiEkranı.Controllers
     public class AboutController : Controller
     {
         // GET: About
+        [Authorize]
         public ActionResult Index()
         {
             return View();

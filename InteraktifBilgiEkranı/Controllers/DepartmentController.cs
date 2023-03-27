@@ -1,8 +1,6 @@
 ﻿using BusinessLayer.Concrete;
-using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
-using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +14,7 @@ namespace InteraktifBilgiEkranı.Controllers
         DepartmentManager Dm = new DepartmentManager(new EfDepartmentDAL());
         FacultyManager Fm = new FacultyManager(new EfFacultyDAL());
         // GET: Department
+        [Authorize]
         public ActionResult Index()
         {
             var departmentValues = Dm.GetList();
@@ -39,22 +38,10 @@ namespace InteraktifBilgiEkranı.Controllers
         [HttpPost]
         public ActionResult AddDepartment(Department p)
         {
-            DepartmentValidator departmentValidator = new DepartmentValidator();
-            ValidationResult results = departmentValidator.Validate(p);
             p.DepartmentCreationDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-            if (results.IsValid)
-            {
-                Dm.DepartmentAdd(p);
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                foreach (var item in results.Errors)
-                {
-                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
-                }
-            }
-            return View();
+            Dm.DepartmentAdd(p);
+            return RedirectToAction("Index");
+
         }
 
         [HttpGet]

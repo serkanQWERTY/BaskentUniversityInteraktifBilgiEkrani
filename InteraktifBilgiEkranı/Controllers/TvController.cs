@@ -14,6 +14,7 @@ namespace InteraktifBilgiEkranı.Controllers
         TvManager Tm = new TvManager(new EfTvDAL());
         DepartmentManager Dm = new DepartmentManager(new EfDepartmentDAL());
         // GET: Department
+        [Authorize]
         public ActionResult Index()
         {
             var tvValues = Tm.GetList();

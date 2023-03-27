@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace InteraktifBilgiEkranı.Controllers
 {
@@ -21,11 +22,13 @@ namespace InteraktifBilgiEkranı.Controllers
         public ActionResult Index(User p)
         {
             Context c = new Context();
-            var info = c.Users.FirstOrDefault(x => x.UserMail == p.UserMail &&
+            var infos = c.Users.FirstOrDefault(x => x.UserMail == p.UserMail &&
             x.UserPassword == p.UserPassword);
 
-            if (info != null)
+            if (infos != null)
             {
+                FormsAuthentication.SetAuthCookie(infos.UserMail,false);
+                Session["UserMail"] = infos.UserMail;
                 return RedirectToAction("Index", "New");
             }
             else
