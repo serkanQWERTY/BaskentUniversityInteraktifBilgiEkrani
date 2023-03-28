@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace InteraktifBilgiEkranı.Controllers
@@ -14,5 +15,6 @@ namespace InteraktifBilgiEkranı.Controllers
         {
             return View();
         }
+
     }
 }

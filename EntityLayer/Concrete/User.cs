@@ -22,8 +22,6 @@ namespace EntityLayer.Concrete
         public string UserPhone { get; set; }
         [StringLength(50)]
         public string UserMail { get; set; }
-        [StringLength(250)]
-        public string UserImage { get; set; }
         public bool UserStatus { get; set; }
         public DateTime UserCreationDate { get; set; }
 

@@ -29,7 +29,7 @@ namespace InteraktifBilgiEkranı.Controllers
             {
                 FormsAuthentication.SetAuthCookie(infos.UserMail,false);
                 Session["UserMail"] = infos.UserMail;
-                return RedirectToAction("Index", "New");
+                return RedirectToAction("Index", "Faculty");
             }
             else
             {

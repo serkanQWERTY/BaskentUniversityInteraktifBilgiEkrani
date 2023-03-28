@@ -4,5 +4,36 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 my-auto" style="width: 435px">
+                <h4><strong>Bize Ulaşın!</strong></h4>
+                @*@if (ViewBag.Uyari == "Mesajınız başarı ile gönderilmiştir.")
+                {
+                    <div class="alert alert-info">@ViewBag.Uyari</div>
+                }*@
 
+                <form action="/About/Index/" method="post" role="form" class="contactForm">
+                    <div class="form-group">
+                        <input type="text" name="adsoyad" class="form-control" id="name" placeholder="İsminiz" data-rule="minlen:4" data-msg="Lütfen en az 4 karekter giriniz" />
+                        <div class="validation"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Mail Adresiniz" data-rule="email" required />
+                        <div class="validation"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="konu" id="subject" placeholder="Konu" data-rule="minlen:4" required />
+                        <div class="validation"></div>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" name="mesaj" rows="5" data-rule="required" required placeholder="Mesajınız"></textarea>
+                        <div class="validation"></div>
+                    </div>
+                    <button type="submit" class="btn btn-success">Gönder</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,71 @@
+﻿@model EntityLayer.Concrete.User
+@{
+    ViewBag.Title = "EditUser";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("EditUser", "User", FormMethod.Post))
+{
+    <div class="col-md-12" style="width: 450px">
+        <div class="card-body">
+            <p class="mb-2"><strong>Kullanıcı Güncelleme Sayfası</strong></p>
+
+            @Html.HiddenFor(model => model.UserID)
+
+            <div class="form-group mb-3">
+                @Html.Label("Kullanıcı Adı")
+                @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.Label("Kullanıcı Soyadı")
+                @Html.TextBoxFor(x => x.UserSurname, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.Label("Kullanıcı Şifre")
+                @Html.TextBoxFor(x => x.UserPassword, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.Label("Kullanıcı Telefon")
+                @Html.TextBoxFor(x => x.UserPhone, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.Label("Kullanıcı Mail")
+                @Html.TextBoxFor(x => x.UserMail, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.Label("Kullanıcı Durum")
+                @Html.TextBoxFor(x => x.UserStatus, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.Label("Kullanıcı Oluşturulma Tarihi")
+                @Html.TextBoxFor(x => x.UserCreationDate, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.Label("Rol")
+                @Html.DropDownListFor(x => x.Permission, (List<SelectListItem>)ViewBag.vlr, new
+                { @class = "form-control" })
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.Label("Bölüm")
+                @Html.DropDownListFor(x => x.DepartmentID, (List<SelectListItem>)ViewBag.vld, new
+                { @class = "form-control" })
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.Label("Fakülte")
+                @Html.DropDownListFor(x => x.FacultyID, (List<SelectListItem>)ViewBag.vlf, new
+                { @class = "form-control" })
+            </div>
+            <br />
+            <button class="btn btn-success">Kaydet</button>
+        </div>
+    </div>
+}
