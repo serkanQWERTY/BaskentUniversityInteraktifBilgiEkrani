@@ -10,10 +10,12 @@
         <div class="card-body">
             <p class="mb-2"><strong>Haber Güncelleme Sayfası</strong></p>
 
-            <div class="form-group mb-3">
-                @Html.Label("Haber ID")
-                @Html.TextBoxFor(x => x.NewID, new { @class = "form-control" })
-            </div>
+            @Html.HiddenFor(model => model.NewID)
+
+            @*<div class="form-group mb-3">
+            @Html.Label("Haber ID")
+            @Html.TextBoxFor(x => x.NewID, new { @class = "form-control" })
+        </div>*@
 
             <div class="form-group mb-3">
                 @Html.Label("Haber Adı")
@@ -45,16 +47,15 @@
                 @Html.Label("Ekran")
                 @Html.DropDownListFor(x => x.TvID, (List<SelectListItem>)ViewBag.vlt,
                 new { @class = "form-control" })
-            </div>       
-            
+            </div>
+
 
             <div class="form-group mb-3">
                 @Html.LabelFor(model => model.NewPath, htmlAttributes: new { @class = "control-label col-md" })
                 <input type="file" name="NewPath" class="form-control" required placeholder="Resim Seçiniz" />
             </div>
-
-            <br />
             <button class="btn btn-success">Güncelle</button>
+            <a href="/Department/Index" class="btn btn-success m-md-2">Geri Git</a>
         </div>
     </div>
 }

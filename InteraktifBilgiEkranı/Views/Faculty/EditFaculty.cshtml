@@ -11,15 +11,17 @@
         <div class="card-body">
             <p class="mb-2"><strong>Fakülte Güncelleme Sayfası</strong></p>
 
-            <div class="form-group mb-3">
-                @Html.Label("Fakülte ID")
-                @Html.TextBoxFor(x => x.FacultyID, new { @class = "form-control" })
-            </div>
+            @Html.HiddenFor(model => model.FacultyID)
+
+            @*<div class="form-group mb-3">
+            @Html.Label("Fakülte ID")
+            @Html.TextBoxFor(x => x.FacultyID, new { @class = "form-control" })
+        </div>*@
 
             <div class="form-group mb-3">
                 @Html.Label("Fakülte Adı")
                 @Html.TextBoxFor(x => x.FacultyName, new { @class = "form-control" })
-            </div> 
+            </div>
 
             <div class="form-group mb-3">
                 @Html.Label("Fakülte Adresi")
@@ -35,7 +37,8 @@
                 @Html.Label("Fakülte Kuruluş Tarihi")
                 @Html.TextBoxFor(x => x.FacultyCreationDate, new { @class = "form-control" })
             </div>
+            <button class="btn btn-success">Güncelle</button>
+            <a href="/Faculty/Index" class="btn btn-success m-md-2">Geri Git</a>
         </div>
-        <button class="btn btn-success">Güncelle</button>
     </div>
 }

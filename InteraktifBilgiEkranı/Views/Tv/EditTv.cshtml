@@ -10,10 +10,12 @@
         <div class="card-body">
             <p class="mb-2"><strong>Tv Güncelleme Sayfası</strong></p>
 
-            <div class="form-group mb-3">
-                @Html.Label("Tv ID")
-                @Html.TextBoxFor(x => x.TvID, new { @class = "form-control" })
-            </div>
+            @Html.HiddenFor(model => model.TvID)
+
+            @*<div class="form-group mb-3">
+            @Html.Label("Tv ID")
+            @Html.TextBoxFor(x => x.TvID, new { @class = "form-control" })
+        </div>*@
 
             <div class="form-group mb-3">
                 @Html.Label("Tv Açıklaması")
@@ -40,8 +42,8 @@
                 @Html.DropDownListFor(x => x.DepartmentID, (List<SelectListItem>)ViewBag.vld,
                 new { @class = "form-control" })
             </div>
-            <br />
             <button class="btn btn-success">Güncelle</button>
+            <a href="/Tv/Index" class="btn btn-success m-md-2">Geri Git</a>
         </div>
     </div>
 }

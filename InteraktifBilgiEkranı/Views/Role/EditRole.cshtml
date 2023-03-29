@@ -10,10 +10,12 @@
         <div class="card-body">
             <p class="mb-2"><strong>Rol Güncelleme Sayfası</strong></p>
 
-            <div class="form-group mb-3">
-                @Html.Label("Rol ID")
-                @Html.TextBoxFor(x => x.RoleID, new { @class = "form-control" })
-            </div>
+            @Html.HiddenFor(model => model.RoleID)
+
+            @*<div class="form-group mb-3">
+            @Html.Label("Rol ID")
+            @Html.TextBoxFor(x => x.RoleID, new { @class = "form-control" })
+        </div>*@
 
             <div class="form-group mb-3">
                 @Html.Label("Rol Adı")
@@ -39,7 +41,8 @@
                 @Html.Label("Rol Yaratılış Tarihi")
                 @Html.TextBoxFor(x => x.RoleCreationDate, new { @class = "form-control" })
             </div>
+            <button class="btn btn-success">Güncelle</button>
+            <a href="/Role/Index" class="btn btn-success m-md-2">Geri Git</a>
         </div>
-        <button class="btn btn-success">Güncelle</button>
     </div>
 }
