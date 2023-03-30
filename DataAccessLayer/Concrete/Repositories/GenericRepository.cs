@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -24,8 +25,22 @@ namespace DataAccessLayer.Concrete.Repositories
         {
             var deletedEntity = c.Entry(p);
             deletedEntity.State = EntityState.Deleted;
-            //_object.Remove(p);
-            c.SaveChanges();
+            bool saveFailed;
+            do
+            {
+                saveFailed = false;
+
+                try
+                {
+                    c.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException ex)
+                {
+                    saveFailed = true;
+                    ex.Entries.Single().Reload();
+                }
+
+            } while (saveFailed);
         }
 
         public T Get(Expression<Func<T, bool>> filter)
@@ -37,8 +52,22 @@ namespace DataAccessLayer.Concrete.Repositories
         {
             var addedEntity = c.Entry(p);
             addedEntity.State = EntityState.Added;
-            //_object.Add(p);
-            c.SaveChanges();
+            bool saveFailed;
+            do
+            {
+                saveFailed = false;
+
+                try
+                {
+                    c.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException ex)
+                {
+                    saveFailed = true;
+                    ex.Entries.Single().Reload();
+                }
+
+            } while (saveFailed);
         }
 
         public List<T> List()
@@ -55,7 +84,23 @@ namespace DataAccessLayer.Concrete.Repositories
         {
             var updatedEntity = c.Entry(p);
             updatedEntity.State = EntityState.Modified;
-            c.SaveChanges();
+
+            bool saveFailed;
+            do
+            {
+                saveFailed = false;
+
+                try
+                {
+                    c.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException ex)
+                {
+                    saveFailed = true;
+                    ex.Entries.Single().Reload();
+                }
+
+            } while (saveFailed);
         }
     }
 }
