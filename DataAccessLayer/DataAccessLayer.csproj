@@ -82,6 +82,22 @@
     <Compile Include="Migrations\202303272306415_mig_imag.designer.cs">
       <DependentUpon>202303272306415_mig_imag.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202303292317300_mig_Validation.cs" />
+    <Compile Include="Migrations\202303292317300_mig_Validation.designer.cs">
+      <DependentUpon>202303292317300_mig_Validation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303292344509_Mig_ValidationRules.cs" />
+    <Compile Include="Migrations\202303292344509_Mig_ValidationRules.designer.cs">
+      <DependentUpon>202303292344509_Mig_ValidationRules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303300007439_migtest.cs" />
+    <Compile Include="Migrations\202303300007439_migtest.designer.cs">
+      <DependentUpon>202303300007439_migtest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303300010028_guncl.cs" />
+    <Compile Include="Migrations\202303300010028_guncl.designer.cs">
+      <DependentUpon>202303300010028_guncl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -107,6 +123,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303272306415_mig_imag.resx">
       <DependentUpon>202303272306415_mig_imag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303292317300_mig_Validation.resx">
+      <DependentUpon>202303292317300_mig_Validation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303292344509_Mig_ValidationRules.resx">
+      <DependentUpon>202303292344509_Mig_ValidationRules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303300007439_migtest.resx">
+      <DependentUpon>202303300007439_migtest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303300010028_guncl.resx">
+      <DependentUpon>202303300010028_guncl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

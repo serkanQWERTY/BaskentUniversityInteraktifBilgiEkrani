@@ -13,18 +13,18 @@ namespace EntityLayer.Concrete
         public int NewID { get; set; }
         [StringLength(100)]
         public string NewName { get; set; }
-        public DateTime NewCreationDate { get; set; }
-        [StringLength(1000)]
+        [StringLength(500)]
         public string NewPath { get; set; }
-        public bool NewStatus { get; set; }
-        [StringLength(1000)]
+        [StringLength(500)]
         public string NewDescription { get; set; }
+        public bool NewStatus { get; set; }
+        public DateTime NewCreationDate { get; set; }
+
 
         public int UserID { get; set; }
         public virtual User User { get; set; }
 
         public int TvID { get; set; }
         public virtual Tv Tv { get; set; }
-
     }
 }

@@ -13,13 +13,13 @@ namespace EntityLayer.Concrete
         public int FacultyID { get; set; }
         [StringLength(100)]
         public string FacultyName { get; set; }
-        [StringLength(1000)]
+        [StringLength(500)]
         public string FacultyAddress { get; set; }
         public bool FacultyStatus { get; set; }
         public DateTime FacultyCreationDate { get; set; }
 
+
         public ICollection<User> Users { get; set; }
         public ICollection<Department> Departments { get; set; }
-
     }
 }

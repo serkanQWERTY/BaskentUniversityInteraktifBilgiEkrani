@@ -11,9 +11,9 @@ namespace EntityLayer.Concrete
     {
         [Key]
         public int TvID { get; set; }
-        [StringLength(1000)]
+        [StringLength(500)]
         public string TvDescription { get; set; }
-        [StringLength(1000)]
+        [StringLength(500)]
         public string TvAddress { get; set; }
         public DateTime TvCreationDate { get; set; }
         public bool TvStatus { get; set; }

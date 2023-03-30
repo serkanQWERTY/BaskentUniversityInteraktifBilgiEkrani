@@ -13,11 +13,11 @@ namespace EntityLayer.Concrete
         public int RoleID { get; set; }
         [StringLength(50)]
         public string RoleName { get; set; }
-        [StringLength(3)]
+        [StringLength(10)]
         public string RoleShortName { get; set; }
-        public bool RoleStatus { get; set; }
-        [StringLength(1000)]
+        [StringLength(500)]
         public string RoleDescription { get; set; }
+        public bool RoleStatus { get; set; }
         public DateTime RoleCreationDate { get; set; }
 
         public ICollection<User> Users { get; set; }

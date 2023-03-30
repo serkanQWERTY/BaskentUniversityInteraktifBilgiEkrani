@@ -20,7 +20,7 @@ namespace EntityLayer.Concrete
         public string UserPassword { get; set; }
         [StringLength(11)]
         public string UserPhone { get; set; }
-        [StringLength(50)]
+        [StringLength(75)]
         public string UserMail { get; set; }
         public bool UserStatus { get; set; }
         public DateTime UserCreationDate { get; set; }
@@ -39,7 +39,5 @@ namespace EntityLayer.Concrete
 
 
         public ICollection<New> News { get; set; }
-
-
     }
 }

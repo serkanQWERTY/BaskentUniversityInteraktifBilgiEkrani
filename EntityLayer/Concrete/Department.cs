@@ -13,7 +13,7 @@ namespace EntityLayer.Concrete
         public int DepartmentID { get; set; }
         [StringLength(100)]
         public string DepartmentName { get; set; }
-        [StringLength(1000)]
+        [StringLength(500)]
         public string DepartmentAddress { get; set; }
         public bool DepartmentStatus { get; set; }
         public DateTime DepartmentCreationDate { get; set; }
