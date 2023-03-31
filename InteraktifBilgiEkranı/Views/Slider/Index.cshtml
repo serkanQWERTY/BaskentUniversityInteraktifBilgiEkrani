@@ -1,34 +1,179 @@
 ﻿@using EntityLayer.Concrete
 @model List<New>
-
 @{
     Layout = null;
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>Bootstrap Example</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>İNTERAKTİF BİLGİ EKRANI</title>
+    <style>
+        .container {
+            margin: 10px 0 10px 0;
+        }
+
+        .slider * {
+            transition: all 0.4s ease 0s;
+            user-select: none;
+        }
+
+        .slider {
+            background: #ddd;
+            margin: auto;
+            width: 100%;
+            height: 47vw;
+            overflow: hidden;
+            /*border-radius: 10px;*/
+            position: relative;
+        }
+
+/*       .slider img {
+              width: 100%;
+               height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+            }*/
+
+    </style>
 </head>
 <body>
-
+    <header>
+        <center><h1 style="font-family: verdana;">İNTERAKTİF BİLGİ EKRANINA HOŞGELDİNİZ!</h1></center>
+    </header>
     <div class="container">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
+        <div class="slider">
+            <div class="imgholder">
 
-                <div class="item active">
-                    @foreach (var item in Model)
-                    {
-                        <img src="@item.NewPath" alt="" style="width:100%;">
-                    }
-                </div>
+                @foreach (var item in Model)
+                {
+                    <img src="@item.NewPath" />
+                }
+
             </div>
         </div>
     </div>
+    <script>
+
+
+        if (document.querySelectorAll(".slider").length == 1) {
+
+            const timerlength = 3000 // Change it if you want to change the autoslide speed (in miliseconds, 10000 means 10 seconds)
+            const slider = document.querySelector(".slider");
+            const sliderImg = slider.querySelectorAll("img");
+            const sliderPreviusButton = slider.querySelector(".left")
+            const sliderNextButton = slider.querySelector(".right")
+            const slider_dots_holder = slider.querySelector(".slider_dots_holder")
+            const sliderCount = slider.querySelectorAll("img").length - 1
+            const imgHolder = slider.querySelector(".imgholder")
+
+
+
+            let currentSlider = 0;
+            let dotsnum = sliderCount + 1;
+            // CreateDots function creates clickable dots & caption based on the number of images and alt texts
+            for (; dotsnum != 0; dotsnum--) {
+                const realId = sliderCount - (dotsnum - 1)
+                const newDot = document.createElement("div");
+                const newCaption = document.createElement("div");
+                newDot.classList.add("slider_dots");
+                newDot.setAttribute("id", realId);
+                newDot.setAttribute("onclick", ("sliderJump" + "(" + realId + ")"))
+                newCaption.classList.add("slider_alts");
+                newCaption.innerHTML = sliderImg[realId].alt;
+                slider_dots_holder.appendChild(newDot);
+                imgHolder.appendChild(newCaption);
+            }
+
+            // Below codes are for Next and previous butttons
+            const sliderdots = slider.querySelectorAll(".slider_dots")
+            const slideralts = slider.querySelectorAll(".slider_alts")
+
+
+
+
+            // Functions
+            // Auto Play Codes (autoplay is Optional. you can remove the below code if you do not want Autoplay)
+            function slideTimer() {
+                if (currentSlider < sliderCount) {
+
+                    slidNext()
+                    window.setTimeout(slideTimer, timerlength)
+                } else {
+
+                    sliderJump(0)
+                    window.setTimeout(slideTimer, timerlength)
+                }
+            }
+
+            function sliderShow() {
+
+                sliderImg[currentSlider].style.opacity = "1";
+                sliderdots[currentSlider].style.opacity = "1";
+                slideralts[currentSlider].style.opacity = "0.8";
+
+            }
+
+            function sliderHide() {
+
+                sliderImg[currentSlider].style.opacity = "0";
+                sliderdots[currentSlider].style.opacity = "0.5";
+                slideralts[currentSlider].style.opacity = "0";
+            }
+
+            function slidNext() {
+                if (currentSlider < sliderCount) {
+
+                    sliderHide();
+                    currentSlider++;
+                    sliderShow();
+                } else {
+
+                    sliderHide();
+                    currentSlider = 0;
+                    sliderShow();
+                }
+            }
+
+            function slidePrevius() {
+                if (currentSlider > 0) {
+
+                    sliderHide();
+                    currentSlider--;
+                    sliderShow();
+                } else {
+
+                    sliderHide();
+                    currentSlider = sliderCount;
+                    sliderShow();
+                }
+            }
+
+            function sliderJump(number) {
+
+                sliderHide();
+                currentSlider = number;
+                sliderShow();
+                resetTimer();
+            }
+
+            function resetTimer() {
+            }
+
+            // Init
+            if (sliderCount !== -1) {
+
+                sliderPreviusButton.addEventListener("click", slidePrevius);
+                sliderNextButton.addEventListener("click", slidNext);
+                sliderShow()
+
+                // Events
+                window.setTimeout(slideTimer, timerlength);
+            }
+        }
+    </script>
 </body>
 </html>

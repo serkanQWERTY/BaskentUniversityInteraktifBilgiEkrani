@@ -38,6 +38,21 @@ namespace BusinessLayer.Concrete
             _newDAL.Delete(news);
         }
 
+        public void NewChangeStatus(New news)
+        {
+            if (news.NewStatus == true)
+            {
+                news.NewStatus = false;
+                _newDAL.Update(news);
+            }
+            else if (news.NewStatus == false)
+            {
+                news.NewStatus = true;
+                _newDAL.Update(news);
+            }
+
+        }
+
         public void NewUpdate(New news)
         {
             _newDAL.Update(news);

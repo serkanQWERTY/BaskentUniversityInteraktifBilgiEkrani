@@ -53,7 +53,7 @@ namespace InteraktifBilgiEkranı.Controllers
                                                      Text = x.FacultyName,
                                                      Value = x.FacultyID.ToString()
                                                  }
-                                                  ).ToList();
+                                                 ).ToList();
             ViewBag.vlf = valueFaculty;
             var departmentValues = Dm.GetByID(id);
             return View(departmentValues);
@@ -66,17 +66,17 @@ namespace InteraktifBilgiEkranı.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult ChangeStatusDepartment(int id)
+        {
+            var departmentValues = Dm.GetByID(id);
+            Dm.DepartmentChangeStatus(departmentValues);
+            return RedirectToAction("Index");
+        }
+
         public ActionResult DeleteDepartment(int id)
         {
             var departmentValues = Dm.GetByID(id);
             Dm.DepartmentDelete(departmentValues);
-            return RedirectToAction("Index");
-        }
-
-        public ActionResult DeleteHardDepartment(int id)
-        {
-            var departmentValues = Dm.GetByID(id);
-            Dm.DepartmentHardDelete(departmentValues);
             return RedirectToAction("Index");
         }
 

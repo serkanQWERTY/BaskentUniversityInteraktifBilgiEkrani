@@ -33,6 +33,20 @@ namespace BusinessLayer.Concrete
             _facultyDAL.Update(faculty);
         }
 
+        public void FacultyChangeStatus(Faculty faculty)
+        {
+            if (faculty.FacultyStatus == true)
+            {
+                faculty.FacultyStatus = false;
+                _facultyDAL.Update(faculty);
+            }
+            else if (faculty.FacultyStatus == false)
+            {
+                faculty.FacultyStatus = true;
+                _facultyDAL.Update(faculty);
+            }
+        }
+
         public Faculty GetByID(int id)
         {
             return _facultyDAL.Get(x => x.FacultyID == id);

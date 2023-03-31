@@ -41,6 +41,13 @@ namespace InteraktifBilgiEkranı.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult ChangeStatusRole(int id)
+        {
+            var roleValues = Rm.GetByID(id);
+            Rm.RoleChangeStatus(roleValues);
+            return RedirectToAction("Index");
+        }
+
         [HttpGet]
         public ActionResult EditRole(int id)
         {

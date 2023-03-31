@@ -42,5 +42,20 @@ namespace BusinessLayer.Concrete
         {
             _userDAL.Update(user);
         }
+
+        public void UserChangeStatus(User user)
+        {
+            if (user.UserStatus == true)
+            {
+                user.UserStatus = false;
+                _userDAL.Update(user);
+            }
+            else if (user.UserStatus == false)
+            {
+                user.UserStatus = true;
+                _userDAL.Update(user);
+            }
+
+        }
     }
 }

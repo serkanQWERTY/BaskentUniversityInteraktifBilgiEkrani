@@ -4,6 +4,13 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+
+@{
+    string checkStatus = "";
+    string buttonStatusColor = "";
+    string badgeStatusColor = "";
+    string facultyStatus = "";
+}
 <br />
 
 <div class="col-md-12 my-auto">
@@ -17,32 +24,59 @@
                 <th>Adres</th>
                 <th>Durum</th>
                 <th>Tarih</th>
-                <th>Aktif Yap</th>
-                <th>Pasif Yap</th>
                 <th>Güncelle</th>
+                <th>Aktif/Pasif</th>
                 <th>Sil</th>
             </tr>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>@item.FacultyID</td>
-                    <td>@item.FacultyName</td>
-                    <td>@item.FacultyAddress</td>
-                    <td>@item.FacultyStatus</td>
-                    <td>
-                        <div class="time-label">
-                            <span>@(((DateTime)item.FacultyCreationDate).ToString("dd-MM-yyyy"))</span>
-                        </div>
-                    </td>
-                    <td><a href="#" class="btn btn-primary">Aktif Yap</a></td>
-                    <td><a href="#" class="btn btn-warning">Pasif Yap</a></td>
-                    <td><a href="/Faculty/EditFaculty/@item.FacultyID" class="btn btn-info">Güncelle</a></td>
-                    <td><a href="/Faculty/DeleteFaculty/@item.FacultyID" class="btn btn-danger">Sil</a></td>
-                </tr>
+        <tr>
+            <td>@item.FacultyID</td>
+            <td>@item.FacultyName</td>
+            <td>@item.FacultyAddress</td>
+            <td>
+                @switch (item.FacultyStatus)
+                {
+                    case true:
+                        badgeStatusColor = "badge badge-success";
+                        buttonStatusColor = "btn btn-warning";
+                        facultyStatus = "Aktif Durum";
+                        break;
+                    case false:
+                        badgeStatusColor = "badge badge-warning";
+                        buttonStatusColor = "btn btn-success";
+                        facultyStatus = "Pasif Durum";
+                        break;
+                }
+                <span class="@badgeStatusColor">@facultyStatus</span>
+            </td>
+            <td>
+                <div class="time-label">
+                    <span>@(((DateTime)item.FacultyCreationDate).ToString("dd-MM-yyyy"))</span>
+                </div>
+            </td>
+            <td><a href="/Faculty/EditFaculty/@item.FacultyID" class="btn btn-info">Güncelle</a></td>
+            <td>
+                <a class="@buttonStatusColor" href="/Faculty/ChangeStatusFaculty/@item.FacultyID">
+
+                    @if (item.FacultyStatus == true)
+                    {
+                        checkStatus = "Pasif Yap";
+                    }
+                    else
+                    {
+                        checkStatus = "Aktif Yap";
+                    }
+                    @checkStatus
+
+                </a>
+            </td>
+            <td><a href="/Faculty/DeleteFaculty/@item.FacultyID" class="btn btn-danger">Sil</a></td>
+        </tr>
             }
         </table>
     </div>
     <br />
-    <a href="/Faculty/AddFaculty" class="btn btn-success">Yeni Fakülte Yarat</a>
+    <a href="/Faculty/AddFaculty" class="btn btn-primary">Yeni Fakülte Yarat</a>
 </div>
 

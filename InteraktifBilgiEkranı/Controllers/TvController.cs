@@ -67,8 +67,14 @@ namespace InteraktifBilgiEkranı.Controllers
         public ActionResult DeleteTv(int id)
         {
             var tvValues = Tm.GetByID(id);
-            tvValues.TvStatus = false;
             Tm.TvDelete(tvValues);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult ChangeStatusTv(int id)
+        {
+            var tvValues = Tm.GetByID(id);
+            Tm.TvChangeStatus(tvValues);
             return RedirectToAction("Index");
         }
     }

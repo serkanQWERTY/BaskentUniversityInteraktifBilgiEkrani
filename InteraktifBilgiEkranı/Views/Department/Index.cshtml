@@ -15,6 +15,7 @@
 
 <div class="col-md-12 my-auto">
     <h2>Bölüm Yönetim Sayfası</h2>
+    <br />
     <div>
         <table class="table table-bordered table-hover mb-0">
             <tr>
@@ -58,7 +59,7 @@
                     <td>@item.Faculty.FacultyName</td>
                     <td><a href="/Department/EditDepartment/@item.DepartmentID" class="btn btn-info">Güncelle</a></td>
                     <td>
-                        <a class="@buttonStatusColor" href="/Department/DeleteDepartment/@item.DepartmentID">
+                        <a class="@buttonStatusColor" href="/Department/ChangeStatusDepartment/@item.DepartmentID">
 
                             @if (item.DepartmentStatus == true)
                             {
@@ -72,7 +73,7 @@
 
                         </a>
                     </td>
-                    <td><a href="/Department/DeleteHardDepartment/@item.DepartmentID" class="btn btn-danger">Sil</a></td>
+                    <td><a href="/Department/DeleteDepartment/@item.DepartmentID" class="btn btn-danger">Sil</a></td>
                 </tr>
             }
         </table>

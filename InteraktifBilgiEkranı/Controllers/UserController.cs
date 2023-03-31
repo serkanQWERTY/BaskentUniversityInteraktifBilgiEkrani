@@ -103,8 +103,14 @@ namespace InteraktifBilgiEkranı.Controllers
         public ActionResult DeleteUser(int id)
         {
             var userValues = Um.GetByID(id);
-            userValues.UserStatus = false;
             Um.UserDelete(userValues);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult ChangeStatusUser(int id)
+        {
+            var userValues = Um.GetByID(id);
+            Um.UserChangeStatus(userValues);
             return RedirectToAction("Index");
         }
     }

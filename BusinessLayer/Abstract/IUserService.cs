@@ -13,6 +13,7 @@ namespace BusinessLayer.Abstract
         void UserAdd(User user);
         User GetByID(int id);
         void UserDelete(User user);
+        void UserChangeStatus(User user);
         void UserUpdate(User user);
     }
 }

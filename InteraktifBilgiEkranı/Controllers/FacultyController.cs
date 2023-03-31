@@ -40,6 +40,12 @@ namespace InteraktifBilgiEkranı.Controllers
             Fm.FacultyDelete(facultyValues);
             return RedirectToAction("Index");
         }
+        public ActionResult ChangeStatusFaculty(int id)
+        {
+            var facultyValues = Fm.GetByID(id);
+            Fm.FacultyChangeStatus(facultyValues);
+            return RedirectToAction("Index");
+        }
 
         [HttpGet]
         public ActionResult EditFaculty(int id)

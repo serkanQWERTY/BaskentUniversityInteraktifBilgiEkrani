@@ -106,8 +106,14 @@ namespace InteraktifBilgiEkranı.Controllers
         public ActionResult DeleteNew(int id)
         {
             var newValues = Nm.GetByID(id);
-            newValues.NewStatus = false;
             Nm.NewDelete(newValues);
+            return RedirectToAction("Index");
+        }
+        
+        public ActionResult ChangeStatusNew(int id)
+        {
+            var newValues = Nm.GetByID(id);
+            Nm.NewChangeStatus(newValues);
             return RedirectToAction("Index");
         }
     }

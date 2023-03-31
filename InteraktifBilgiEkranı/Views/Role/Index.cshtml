@@ -4,10 +4,19 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+
+@{
+    string checkStatus = "";
+    string buttonStatusColor = "";
+    string badgeStatusColor = "";
+    string roleStatus = "";
+}
+
 <br />
 
 <div class="col-md-12 my-auto">
     <h2>Rol Yönetim Sayfası</h2>
+    <br />
     <div>
         <table class="table table-bordered table-hover mb-0">
             <tr>
@@ -17,33 +26,60 @@
                 <th>Durum</th>
                 <th>Açıklama</th>
                 <th>Yaratılış Tarihi</th>
-                <th>Aktif Yap</th>
-                <th>Pasif Yap</th>
                 <th>Güncelle</th>
+                <th>Aktif/Pasif</th>
                 <th>Sil</th>
             </tr>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>@item.RoleID</td>
-                    <td>@item.RoleName</td>
-                    <td>@item.RoleShortName</td>
-                    <td>@item.RoleStatus</td>
-                    <td>@item.RoleDescription</td>
-                    <td>
-                        <div class="time-label">
-                            <span>@(((DateTime)item.RoleCreationDate).ToString("dd-MM-yyyy"))</span>
-                        </div>
-                    </td>
-                    <td><a href="#" class="btn btn-primary">Aktif Yap</a></td>
-                    <td><a href="#" class="btn btn-warning">Pasif Yap</a></td>
-                    <td><a href="/Role/EditRole/@item.RoleID" class="btn btn-info">Güncelle</a></td>
-                    <td><a href="/Role/DeleteRole/@item.RoleID" class="btn btn-danger">Sil</a></td>
-                </tr>
+        <tr>
+            <td>@item.RoleID</td>
+            <td>@item.RoleName</td>
+            <td>@item.RoleShortName</td>
+            <td>
+                @switch (item.RoleStatus)
+                {
+                    case true:
+                        badgeStatusColor = "badge badge-success";
+                        buttonStatusColor = "btn btn-warning";
+                        roleStatus = "Aktif Durum";
+                        break;
+                    case false:
+                        badgeStatusColor = "badge badge-warning";
+                        buttonStatusColor = "btn btn-success";
+                        roleStatus = "Pasif Durum";
+                        break;
+                }
+                <span class="@badgeStatusColor">@roleStatus</span>
+            </td>
+            <td>@item.RoleDescription</td>
+            <td>
+                <div class="time-label">
+                    <span>@(((DateTime)item.RoleCreationDate).ToString("dd-MM-yyyy"))</span>
+                </div>
+            </td>
+            <td><a href="/Role/EditRole/@item.RoleID" class="btn btn-info">Güncelle</a></td>
+            <td>
+                <a class="@buttonStatusColor" href="/Role/ChangeStatusRole/@item.RoleID">
+
+                    @if (item.RoleStatus == true)
+                    {
+                        checkStatus = "Pasif Yap";
+                    }
+                    else
+                    {
+                        checkStatus = "Aktif Yap";
+                    }
+                    @checkStatus
+
+                </a>
+            </td>
+            <td><a href="/Role/DeleteRole/@item.RoleID" class="btn btn-danger">Sil</a></td>
+        </tr>
             }
         </table>
     </div>
     <br />
-    <a href="/Role/AddRole" class="btn btn-success">Yeni Rol Yarat</a>
+    <a href="/Role/AddRole" class="btn btn-primary">Yeni Rol Yarat</a>
 </div>
 

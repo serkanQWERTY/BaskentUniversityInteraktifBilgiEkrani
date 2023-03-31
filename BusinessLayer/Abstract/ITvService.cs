@@ -13,6 +13,7 @@ namespace BusinessLayer.Abstract
         void TvAdd(Tv tv);
         Tv GetByID(int id);
         void TvDelete(Tv tv);
+        void TvChangeStatus(Tv tv);
         void TvUpdate(Tv tv);
     }
 }

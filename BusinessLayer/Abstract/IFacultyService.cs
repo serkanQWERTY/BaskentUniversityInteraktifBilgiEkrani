@@ -12,6 +12,7 @@ namespace BusinessLayer.Abstract
         List<Faculty> GetList();
         void FacultyAdd(Faculty faculty);
         Faculty GetByID(int id);
+        void FacultyChangeStatus(Faculty faculty);
         void FacultyDelete(Faculty faculty);
         void FacultyUpdate(Faculty faculty);
     }

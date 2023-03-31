@@ -13,6 +13,7 @@ namespace BusinessLayer.Abstract
         void NewAdd(New news);
         New GetByID(int id);
         void NewDelete(New news);
+        void NewChangeStatus(New news);
         void NewUpdate(New news);
     }
 }

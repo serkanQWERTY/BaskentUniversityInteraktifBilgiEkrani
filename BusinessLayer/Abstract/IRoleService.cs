@@ -13,6 +13,7 @@ namespace BusinessLayer.Abstract
         void RoleAdd(Role role);
         Role GetByID(int id);
         void RoleDelete(Role role);
+        void RoleChangeStatus(Role role);
         void RoleUpdate(Role role);
     }
 }

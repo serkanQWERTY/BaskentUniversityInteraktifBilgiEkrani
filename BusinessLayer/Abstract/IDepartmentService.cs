@@ -12,7 +12,8 @@ namespace BusinessLayer.Abstract
         List<Department> GetList();
         void DepartmentAdd(Department department);
         Department GetByID(int id);
-        void DepartmentDelete(Department department);
+        void DepartmentChangeStatus(Department department);
         void DepartmentUpdate(Department department);
+        void DepartmentDelete(Department department);
     }
 }

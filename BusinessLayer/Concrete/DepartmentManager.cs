@@ -23,7 +23,7 @@ namespace BusinessLayer.Concrete
             _departmentDAL.Insert(department);
         }
 
-        public void DepartmentDelete(Department department)
+        public void DepartmentChangeStatus(Department department)
         {
             if (department.DepartmentStatus == true)
             {
@@ -37,7 +37,7 @@ namespace BusinessLayer.Concrete
             }
         }
 
-        public void DepartmentHardDelete(Department department)
+        public void DepartmentDelete(Department department)
         {
             _departmentDAL.Delete(department);
         }

@@ -9,6 +9,7 @@
     <div class="col-md-12" style="width: 450px">
         <div class="card-body">
             <p class="mb-2"><strong>Haber Güncelleme Sayfası</strong></p>
+            <br />
 
             @Html.HiddenFor(model => model.NewID)
 
@@ -54,8 +55,8 @@
                 @Html.LabelFor(model => model.NewPath, htmlAttributes: new { @class = "control-label col-md" })
                 <input type="file" name="NewPath" class="form-control" required placeholder="Resim Seçiniz" />
             </div>
-            <button class="btn btn-success">Güncelle</button>
-            <a href="/Department/Index" class="btn btn-success m-md-2">Geri Git</a>
+            <button class="btn btn-primary">Güncelle</button>
+            <a href="/New/Index" class="btn btn-primary m-md-2">Geri Git</a>
         </div>
     </div>
 }

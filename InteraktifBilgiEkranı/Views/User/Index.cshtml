@@ -4,10 +4,19 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+
+@{
+    string checkStatus = "";
+    string buttonStatusColor = "";
+    string badgeStatusColor = "";
+    string userStatus = "";
+}
 <br />
 
 <div class="col-md-12 my-auto">
     <h2>Kullanıcı Yönetim Sayfası</h2>
+    <br />
+
     <div>
         <table class="table table-bordered table-hover mb-0">
             <tr>
@@ -22,37 +31,64 @@
                 <th>Rol</th>
                 <th>Bölüm</th>
                 <th>Fakülte</th>
-                <th>Aktif Yap</th>
-                <th>Pasif Yap</th>
                 <th>Güncelle</th>
+                <th>Aktif/Pasif</th>
                 <th>Sil</th>
             </tr>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>@item.UserID</td>
-                    <td>@item.UserName</td>
-                    <td>@item.UserSurname</td>
-                    <td>@item.UserPassword</td>
-                    <td>@item.UserPhone</td>
-                    <td>@item.UserMail</td>
-                    <td>@item.UserStatus</td>
-                    <td>
-                        <div class="time-label">
-                            <span>@(((DateTime)item.UserCreationDate).ToString("dd-MM-yyyy"))</span>
-                        </div>
-                    </td>
-                    <td>@item.Role.RoleName</td>
-                    <td>@item.Department.DepartmentName</td>
-                    <td>@item.Faculty.FacultyName</td>
-                    <td><a href="#" class="btn btn-primary">Aktif Yap</a></td>
-                    <td><a href="#" class="btn btn-warning">Pasif Yap</a></td>
-                    <td><a href="/User/EditUser/@item.UserID" class="btn btn-info">Güncelle</a></td>
-                    <td><a href="/User/DeleteUser/@item.UserID" class="btn btn-danger">Sil</a></td>
-                </tr>
+        <tr>
+            <td>@item.UserID</td>
+            <td>@item.UserName</td>
+            <td>@item.UserSurname</td>
+            <td>@item.UserPassword</td>
+            <td>@item.UserPhone</td>
+            <td>@item.UserMail</td>
+            <td>
+                @switch (item.UserStatus)
+                {
+                    case true:
+                        badgeStatusColor = "badge badge-success";
+                        buttonStatusColor = "btn btn-warning";
+                        userStatus = "Aktif Durum";
+                        break;
+                    case false:
+                        badgeStatusColor = "badge badge-warning";
+                        buttonStatusColor = "btn btn-success";
+                        userStatus = "Pasif Durum";
+                        break;
+                }
+                <span class="@badgeStatusColor">@userStatus</span>
+            </td>
+            <td>
+                <div class="time-label">
+                    <span>@(((DateTime)item.UserCreationDate).ToString("dd-MM-yyyy"))</span>
+                </div>
+            </td>
+            <td>@item.Role.RoleName</td>
+            <td>@item.Department.DepartmentName</td>
+            <td>@item.Faculty.FacultyName</td>
+            <td><a href="/User/EditUser/@item.UserID" class="btn btn-info">Güncelle</a></td>
+            <td>
+                <a class="@buttonStatusColor" href="/User/ChangeStatusUser/@item.UserID">
+
+                    @if (item.UserStatus == true)
+                    {
+                        checkStatus = "Pasif Yap";
+                    }
+                    else
+                    {
+                        checkStatus = "Aktif Yap";
+                    }
+                    @checkStatus
+
+                </a>
+            </td>
+            <td><a href="/User/DeleteUser/@item.UserID" class="btn btn-danger">Sil</a></td>
+        </tr>
             }
         </table>
     </div>
     <br />
-    <a href="/User/AddUser" class="btn btn-success">Yeni Kullanıcı Yarat</a>
+    <a href="/User/AddUser" class="btn btn-primary">Yeni Kullanıcı Yarat</a>
 </div>

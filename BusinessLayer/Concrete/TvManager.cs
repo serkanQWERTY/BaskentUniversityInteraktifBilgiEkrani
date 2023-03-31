@@ -43,5 +43,20 @@ namespace BusinessLayer.Concrete
         {
             _tvDAL.Update(tv);
         }
+
+        public void TvChangeStatus(Tv tv)
+        {
+            if (tv.TvStatus == true)
+            {
+                tv.TvStatus = false;
+                _tvDAL.Update(tv);
+            }
+            else if (tv.TvStatus == false)
+            {
+                tv.TvStatus = true;
+                _tvDAL.Update(tv);
+            }
+
+        }
     }
 }

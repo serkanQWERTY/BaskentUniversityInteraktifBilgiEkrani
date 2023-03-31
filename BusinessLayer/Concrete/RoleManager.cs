@@ -42,5 +42,20 @@ namespace BusinessLayer.Concrete
         {
             _roleDAL.Update(role);
         }
+
+        public void RoleChangeStatus(Role role)
+        {
+            if (role.RoleStatus == true)
+            {
+                role.RoleStatus = false;
+                _roleDAL.Update(role);
+            }
+            else if(role.RoleStatus == false)
+            {
+                role.RoleStatus = true;
+                _roleDAL.Update(role);
+            }
+
+        }
     }
 }

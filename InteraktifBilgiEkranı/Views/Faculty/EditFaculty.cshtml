@@ -10,7 +10,7 @@
     <div class="col-md-12" style="width: 450px">
         <div class="card-body">
             <p class="mb-2"><strong>Fakülte Güncelleme Sayfası</strong></p>
-
+            <br />
             @Html.HiddenFor(model => model.FacultyID)
 
             @*<div class="form-group mb-3">
@@ -37,8 +37,8 @@
                 @Html.Label("Fakülte Kuruluş Tarihi")
                 @Html.TextBoxFor(x => x.FacultyCreationDate, new { @class = "form-control" })
             </div>
-            <button class="btn btn-success">Güncelle</button>
-            <a href="/Faculty/Index" class="btn btn-success m-md-2">Geri Git</a>
+            <button class="btn btn-primary">Güncelle</button>
+            <a href="/Faculty/Index" class="btn btn-primary m-md-2">Geri Git</a>
         </div>
     </div>
 }

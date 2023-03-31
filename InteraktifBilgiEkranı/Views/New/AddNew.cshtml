@@ -9,7 +9,7 @@
     <div class="col-md-12" style="width: 450px">
         <div class="card-body">
             <p class="mb-2"><strong>Haber Ekleme Sayfası</strong></p>
-
+            <br />
             <div class="form-group mb-3">
                 @Html.Label("Haber Adı")
                 @Html.TextBoxFor(x => x.NewName, new { @class = "form-control" })
@@ -45,8 +45,8 @@
                 @Html.LabelFor(x => x.NewPath, htmlAttributes: new { @class = "control-label col-md" })
                 <input type="file" name="NewPath" class="form-control" required placeholder="Resim Seçiniz" />
             </div>
-            <button class="btn btn-success">Kaydet</button>
-            <a href="/New/Index" class="btn btn-success m-md-2">Geri Git</a>
+            <button class="btn btn-primary">Kaydet</button>
+            <a href="/New/Index" class="btn btn-primary m-md-2">Geri Git</a>
         </div>
     </div>
 }
