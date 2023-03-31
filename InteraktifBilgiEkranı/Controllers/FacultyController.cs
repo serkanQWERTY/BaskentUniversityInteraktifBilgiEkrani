@@ -1,5 +1,4 @@
 ﻿using BusinessLayer.Concrete;
-using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
@@ -31,21 +30,8 @@ namespace InteraktifBilgiEkranı.Controllers
         [HttpPost]
         public ActionResult AddFaculty(Faculty p)
         {
-            FacultyValidator facultyValidator = new FacultyValidator();
-            ValidationResult results = facultyValidator.Validate(p);
-            if (results.IsValid)
-            {
-                Fm.FacultyAdd(p);
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                foreach (var item in results.Errors)
-                {
-                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
-                }
-            }
-            return View();
+            Fm.FacultyAdd(p);
+            return RedirectToAction("Index");
         }
 
         public ActionResult DeleteFaculty(int id)

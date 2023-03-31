@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-@using (Html.BeginForm("AddNew", "New", FormMethod.Post))
+@using (Html.BeginForm("AddNew", "New", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="col-md-12" style="width: 450px">
         <div class="card-body">
@@ -42,7 +42,7 @@
                 { @class = "form-control" })
             </div>
             <div class="form-group mb-3">
-                @Html.LabelFor(model => model.NewPath, htmlAttributes: new { @class = "control-label col-md" })
+                @Html.LabelFor(x => x.NewPath, htmlAttributes: new { @class = "control-label col-md" })
                 <input type="file" name="NewPath" class="form-control" required placeholder="Resim Seçiniz" />
             </div>
             <button class="btn btn-success">Kaydet</button>

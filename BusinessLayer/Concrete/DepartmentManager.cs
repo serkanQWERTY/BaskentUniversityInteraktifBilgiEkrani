@@ -25,6 +25,20 @@ namespace BusinessLayer.Concrete
 
         public void DepartmentDelete(Department department)
         {
+            if (department.DepartmentStatus == true)
+            {
+                department.DepartmentStatus = false;
+                _departmentDAL.Update(department);
+            }
+            else if (department.DepartmentStatus == false)
+            {
+                department.DepartmentStatus = true;
+                _departmentDAL.Update(department);
+            }
+        }
+
+        public void DepartmentHardDelete(Department department)
+        {
             _departmentDAL.Delete(department);
         }
 

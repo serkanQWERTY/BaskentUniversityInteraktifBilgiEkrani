@@ -29,32 +29,30 @@
             </tr>
             @foreach (var item in Model)
             {
-        <tr>
-            <td>@item.UserID</td>
-            <td>@item.UserName</td>
-            <td>@item.UserSurname</td>
-            <td>@item.UserPassword</td>
-            <td>@item.UserPhone</td>
-            <td>@item.UserMail</td>
-            <td>@item.UserStatus</td>
-            <td>
-                <div class="time-label">
-                    <span>@(((DateTime)item.UserCreationDate).ToString("dd-MM-yyyy"))</span>
-                </div>
-            </td>
-            <td>@item.Role.RoleName</td>
-            <td>@item.Department.DepartmentName</td>
-            <td>@item.Faculty.FacultyName</td>
-            <td><a href="#" class="btn btn-primary">Aktif Yap</a></td>
-            <td><a href="#" class="btn btn-warning">Pasif Yap</a></td>
-            <td><a href="/User/EditUser/@item.UserID" class="btn btn-info">Güncelle</a></td>
-            <td><a href="/User/DeleteUser/@item.UserID" class="btn btn-danger">Sil</a></td>
-        </tr>
+                <tr>
+                    <td>@item.UserID</td>
+                    <td>@item.UserName</td>
+                    <td>@item.UserSurname</td>
+                    <td>@item.UserPassword</td>
+                    <td>@item.UserPhone</td>
+                    <td>@item.UserMail</td>
+                    <td>@item.UserStatus</td>
+                    <td>
+                        <div class="time-label">
+                            <span>@(((DateTime)item.UserCreationDate).ToString("dd-MM-yyyy"))</span>
+                        </div>
+                    </td>
+                    <td>@item.Role.RoleName</td>
+                    <td>@item.Department.DepartmentName</td>
+                    <td>@item.Faculty.FacultyName</td>
+                    <td><a href="#" class="btn btn-primary">Aktif Yap</a></td>
+                    <td><a href="#" class="btn btn-warning">Pasif Yap</a></td>
+                    <td><a href="/User/EditUser/@item.UserID" class="btn btn-info">Güncelle</a></td>
+                    <td><a href="/User/DeleteUser/@item.UserID" class="btn btn-danger">Sil</a></td>
+                </tr>
             }
         </table>
     </div>
     <br />
     <a href="/User/AddUser" class="btn btn-success">Yeni Kullanıcı Yarat</a>
 </div>
-
-

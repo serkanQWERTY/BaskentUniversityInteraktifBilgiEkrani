@@ -62,9 +62,9 @@ namespace InteraktifBilgiEkranı.Controllers
             {
                 string dosyaadi = Path.GetFileName(Request.Files[0].FileName);
                 string uzanti = Path.GetExtension(Request.Files[0].FileName);
-                string path = "~/News/" + dosyaadi + uzanti;
+                string path = "~/Image/" + dosyaadi + uzanti;
                 Request.Files[0].SaveAs(Server.MapPath(path));
-                p.NewPath = "/News/" + dosyaadi + uzanti;
+                p.NewPath = "/Image/" + dosyaadi + uzanti;
             }
             p.NewCreationDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             Nm.NewAdd(p);

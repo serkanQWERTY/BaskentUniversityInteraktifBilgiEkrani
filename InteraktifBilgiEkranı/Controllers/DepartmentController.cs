@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,7 +42,6 @@ namespace InteraktifBilgiEkranı.Controllers
             p.DepartmentCreationDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             Dm.DepartmentAdd(p);
             return RedirectToAction("Index");
-
         }
 
         [HttpGet]
@@ -58,17 +58,25 @@ namespace InteraktifBilgiEkranı.Controllers
             var departmentValues = Dm.GetByID(id);
             return View(departmentValues);
         }
+
         [HttpPost]
         public ActionResult EditDepartment(Department p)
         {
             Dm.DepartmentUpdate(p);
             return RedirectToAction("Index");
         }
+
         public ActionResult DeleteDepartment(int id)
         {
             var departmentValues = Dm.GetByID(id);
-            departmentValues.DepartmentStatus = false;
             Dm.DepartmentDelete(departmentValues);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult DeleteHardDepartment(int id)
+        {
+            var departmentValues = Dm.GetByID(id);
+            Dm.DepartmentHardDelete(departmentValues);
             return RedirectToAction("Index");
         }
 
