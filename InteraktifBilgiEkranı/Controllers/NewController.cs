@@ -98,6 +98,14 @@ namespace InteraktifBilgiEkranı.Controllers
         [HttpPost]
         public ActionResult EditNew(New p)
         {
+            if (Request.Files.Count > 0)
+            {
+                string dosyaadi = Path.GetFileName(Request.Files[0].FileName);
+                string uzanti = Path.GetExtension(Request.Files[0].FileName);
+                string path = "~/Image/" + dosyaadi + uzanti;
+                Request.Files[0].SaveAs(Server.MapPath(path));
+                p.NewPath = "/Image/" + dosyaadi + uzanti;
+            }
             Nm.NewUpdate(p);
             return RedirectToAction("Index");
         }

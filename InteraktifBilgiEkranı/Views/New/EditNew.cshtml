@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-@using (Html.BeginForm("EditNew", "New", FormMethod.Post))
+@using (Html.BeginForm("EditNew", "New", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="col-md-12" style="width: 450px">
         <div class="card-body">

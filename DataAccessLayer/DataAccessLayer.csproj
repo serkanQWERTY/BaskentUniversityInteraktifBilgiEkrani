@@ -98,6 +98,10 @@
     <Compile Include="Migrations\202303300010028_guncl.designer.cs">
       <DependentUpon>202303300010028_guncl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202303312207400_mig_userimage.cs" />
+    <Compile Include="Migrations\202303312207400_mig_userimage.designer.cs">
+      <DependentUpon>202303312207400_mig_userimage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -135,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303300010028_guncl.resx">
       <DependentUpon>202303300010028_guncl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303312207400_mig_userimage.resx">
+      <DependentUpon>202303312207400_mig_userimage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

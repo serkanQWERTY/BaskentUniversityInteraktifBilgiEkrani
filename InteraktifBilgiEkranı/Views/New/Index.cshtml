@@ -42,7 +42,11 @@
                             <span>@(((DateTime)item.NewCreationDate).ToString("dd-MM-yyyy"))</span>
                         </div>
                     </td>
-                    <td>@item.NewPath</td>
+                    <td>
+                        <span class="avatar avatar-md mt-2">
+                            <img src="@item.NewPath" alt="..." class="avatar-img rounded-top">
+                        </span>
+                    </td>
                     <td>
                         @switch (item.NewStatus)
                         {

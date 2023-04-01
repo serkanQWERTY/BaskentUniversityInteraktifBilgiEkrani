@@ -3,6 +3,7 @@ using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -56,10 +57,17 @@ namespace InteraktifBilgiEkranı.Controllers
         [HttpPost]
         public ActionResult AddUser(User p)
         {
+            if (Request.Files.Count > 0)
+            {
+                string dosyaadi = Path.GetFileName(Request.Files[0].FileName);
+                string uzanti = Path.GetExtension(Request.Files[0].FileName);
+                string path = "~/ImageUser/" + dosyaadi + uzanti;
+                Request.Files[0].SaveAs(Server.MapPath(path));
+                p.UserPath = "/ImageUser/" + dosyaadi + uzanti;
+            }
             p.UserCreationDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             Um.UserAdd(p);
             return RedirectToAction("Index");
-
         }
 
         [HttpGet]
@@ -96,6 +104,14 @@ namespace InteraktifBilgiEkranı.Controllers
         [HttpPost]
         public ActionResult EditUser(User p)
         {
+            if (Request.Files.Count > 0)
+            {
+                string dosyaadi = Path.GetFileName(Request.Files[0].FileName);
+                string uzanti = Path.GetExtension(Request.Files[0].FileName);
+                string path = "~/ImageUser/" + dosyaadi + uzanti;
+                Request.Files[0].SaveAs(Server.MapPath(path));
+                p.UserPath = "/ImageUser/" + dosyaadi + uzanti;
+            }
             Um.UserUpdate(p);
             return RedirectToAction("Index");
         }

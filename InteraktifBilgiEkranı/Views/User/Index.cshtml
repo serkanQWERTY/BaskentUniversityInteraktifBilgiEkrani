@@ -21,6 +21,7 @@
         <table class="table table-bordered table-hover mb-0">
             <tr>
                 <th>#</th>
+                <th>Fotoğraf</th>
                 <th>İsim</th>
                 <th>Soyisim</th>
                 <th>Parola</th>
@@ -37,55 +38,60 @@
             </tr>
             @foreach (var item in Model)
             {
-        <tr>
-            <td>@item.UserID</td>
-            <td>@item.UserName</td>
-            <td>@item.UserSurname</td>
-            <td>@item.UserPassword</td>
-            <td>@item.UserPhone</td>
-            <td>@item.UserMail</td>
-            <td>
-                @switch (item.UserStatus)
-                {
-                    case true:
-                        badgeStatusColor = "badge badge-success";
-                        buttonStatusColor = "btn btn-warning";
-                        userStatus = "Aktif Durum";
-                        break;
-                    case false:
-                        badgeStatusColor = "badge badge-warning";
-                        buttonStatusColor = "btn btn-success";
-                        userStatus = "Pasif Durum";
-                        break;
-                }
-                <span class="@badgeStatusColor">@userStatus</span>
-            </td>
-            <td>
-                <div class="time-label">
-                    <span>@(((DateTime)item.UserCreationDate).ToString("dd-MM-yyyy"))</span>
-                </div>
-            </td>
-            <td>@item.Role.RoleName</td>
-            <td>@item.Department.DepartmentName</td>
-            <td>@item.Faculty.FacultyName</td>
-            <td><a href="/User/EditUser/@item.UserID" class="btn btn-info">Güncelle</a></td>
-            <td>
-                <a class="@buttonStatusColor" href="/User/ChangeStatusUser/@item.UserID">
+                <tr>
+                    <td>@item.UserID</td>
+                    <td>
+                        <span class="avatar avatar-md mt-2">
+                            <img src="@item.UserPath" alt="..." class="avatar-img rounded-top">
+                        </span>
+                    </td>
+                    <td>@item.UserName</td>
+                    <td>@item.UserSurname</td>
+                    <td>@item.UserPassword</td>
+                    <td>@item.UserPhone</td>
+                    <td>@item.UserMail</td>
+                    <td>
+                        @switch (item.UserStatus)
+                        {
+                            case true:
+                                badgeStatusColor = "badge badge-success";
+                                buttonStatusColor = "btn btn-warning";
+                                userStatus = "Aktif Durum";
+                                break;
+                            case false:
+                                badgeStatusColor = "badge badge-warning";
+                                buttonStatusColor = "btn btn-success";
+                                userStatus = "Pasif Durum";
+                                break;
+                        }
+                        <span class="@badgeStatusColor">@userStatus</span>
+                    </td>
+                    <td>
+                        <div class="time-label">
+                            <span>@(((DateTime)item.UserCreationDate).ToString("dd-MM-yyyy"))</span>
+                        </div>
+                    </td>
+                    <td>@item.Role.RoleName</td>
+                    <td>@item.Department.DepartmentName</td>
+                    <td>@item.Faculty.FacultyName</td>
+                    <td><a href="/User/EditUser/@item.UserID" class="btn btn-info">Güncelle</a></td>
+                    <td>
+                        <a class="@buttonStatusColor" href="/User/ChangeStatusUser/@item.UserID">
 
-                    @if (item.UserStatus == true)
-                    {
-                        checkStatus = "Pasif Yap";
-                    }
-                    else
-                    {
-                        checkStatus = "Aktif Yap";
-                    }
-                    @checkStatus
+                            @if (item.UserStatus == true)
+                            {
+                                checkStatus = "Pasif Yap";
+                            }
+                            else
+                            {
+                                checkStatus = "Aktif Yap";
+                            }
+                            @checkStatus
 
-                </a>
-            </td>
-            <td><a href="/User/DeleteUser/@item.UserID" class="btn btn-danger">Sil</a></td>
-        </tr>
+                        </a>
+                    </td>
+                    <td><a href="/User/DeleteUser/@item.UserID" class="btn btn-danger">Sil</a></td>
+                </tr>
             }
         </table>
     </div>
