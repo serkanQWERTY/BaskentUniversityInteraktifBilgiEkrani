@@ -1,0 +1,51 @@
+﻿@using EntityLayer.Concrete
+@model List<New>
+@{
+    ViewBag.Title = "NewByUser";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+
+<div class="col-md-12 my-auto">
+    <div>
+        <table class="table table-bordered table-hover mb-0">
+            <tr>
+                <th>#</th>
+                <th>İsim</th>
+                <th>Tarih</th>
+                <th>İçerik</th>
+                <th>Durum</th>
+                <th>Açıklama</th>
+                <th>Adres</th>
+                <th>Haber Ekranı</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.NewID</td>
+                    <td>@item.NewName</td>
+                    <td>
+                        <div class="time-label">
+                            <span>@(((DateTime)item.NewCreationDate).ToString("dd-MM-yyyy"))</span>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="avatar avatar-md mt-2">
+                            <img src="@item.NewPath" alt="..." class="avatar-img rounded-top">
+                        </span>
+                    </td>
+                    <td>@item.NewStatus</td>
+                    <td>@item.NewDescription</td>
+                    <td>@item.Tv.TvAddress</td>
+                    <td>@item.Tv.TvDescription</td>
+                </tr>
+            }
+        </table>
+    </div>
+    <br />
+    <a href="/UserGallery/Index" class="btn btn-primary m-md-0">Geri Git</a>
+</div>
+
+
+
+

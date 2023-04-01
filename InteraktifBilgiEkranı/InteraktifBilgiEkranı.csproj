@@ -148,6 +148,7 @@
     <Compile Include="Controllers\SliderController.cs" />
     <Compile Include="Controllers\TvController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserGalleryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2545,6 +2546,8 @@
     <Content Include="Views\User\ReportUser.cshtml" />
     <Content Include="Views\Tv\ReportTv.cshtml" />
     <Content Include="Views\NewGallery\Index.cshtml" />
+    <Content Include="Views\UserGallery\Index.cshtml" />
+    <Content Include="Views\UserGallery\NewByUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

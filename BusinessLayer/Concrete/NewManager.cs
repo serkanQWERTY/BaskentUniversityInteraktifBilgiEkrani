@@ -23,6 +23,11 @@ namespace BusinessLayer.Concrete
             return _newDAL.Get(x => x.NewID == id);
         }
 
+        public List<New> GetListByUserID(int id)
+        {
+            return _newDAL.List(x => x.UserID == id);
+        }
+
         public List<New> GetList()
         {
             return _newDAL.List();
