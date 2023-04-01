@@ -2537,6 +2537,7 @@
     <Content Include="Views\User\AddUser.cshtml" />
     <Content Include="Views\User\EditUser.cshtml" />
     <Content Include="Views\Slider\Index.cshtml" />
+    <Content Include="Views\Department\ReportDepartment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

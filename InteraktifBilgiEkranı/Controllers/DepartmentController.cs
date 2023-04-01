@@ -80,5 +80,12 @@ namespace InteraktifBilgiEkranı.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult ReportDepartment()
+        {
+            ViewBag.title = "Bölüm Raporlama Sayfası";
+            var departmentValues = Dm.GetList();
+            return View(departmentValues);
+        }
+
     }
 }
