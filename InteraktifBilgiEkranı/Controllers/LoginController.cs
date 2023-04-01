@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using System.Web.Security;
 
@@ -24,7 +25,7 @@ namespace InteraktifBilgiEkranı.Controllers
             Context c = new Context();
             var infos = c.Users.FirstOrDefault(x => x.UserMail == p.UserMail &&
             x.UserPassword == p.UserPassword);
-
+            
             if (infos != null)
             {
                 FormsAuthentication.SetAuthCookie(infos.UserMail,false);
@@ -35,7 +36,52 @@ namespace InteraktifBilgiEkranı.Controllers
             {
                 return RedirectToAction("Index");
             }
-           
         }
+        //[HttpGet]
+        //public ActionResult ForgotMyPassword()
+        //{
+        //    return View();
+
+        //}
+
+        //[HttpPost]
+        //public ActionResult ForgotMyPassword(string usermail)
+        //{
+        //    Context c = new Context();
+        //    var mail = c.Users.Where(x => x.UserMail == usermail).SingleOrDefault();
+
+        //    if (mail != null)
+        //    {
+        //        Random rnd = new Random();
+        //        int newpassword = rnd.Next();
+
+        //        User user = new User();
+        //        mail.UserPassword = Convert.ToString(newpassword);
+        //        c.SaveChanges();
+
+
+        //        WebMail.SmtpServer = "smtp.gmail.com";
+        //        WebMail.EnableSsl = true;
+        //        WebMail.UserName = "baskentbilgiekrani@gmail.com";
+        //        WebMail.Password = "ntxrkkvzavktxqqe";
+        //        WebMail.SmtpPort = 587;
+        //        WebMail.Send(usermail, "Admin Panel Giriş Şifreniz", " şifreniz:" + newpassword);
+        //        ViewBag.Uyari = " Mesajınız Başarı ile gönderilmiştir.";
+        //    }
+        //    else
+        //    {
+        //        ViewBag.Uyari = " Hata oluştu. Tekrar Deneyiniz:";
+        //    }
+        //    return View();
+        //}
+
+        //public ActionResult LogOut()
+        //{
+        //    Session["UserID"] = null;
+        //    Session["UserMail"] = null;
+        //    Session.Abandon();
+        //    return RedirectToAction("Login", "Index");
+        //}
+
     }
 }

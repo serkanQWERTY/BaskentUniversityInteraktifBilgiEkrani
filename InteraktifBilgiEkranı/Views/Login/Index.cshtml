@@ -24,6 +24,10 @@
                 <div class="col-md-6 right">
                     <div class="input-box">
                         <header>INTERAKTİF BİLGİ EKRANI</header>
+                        @*@if (Session["UserMail"] == null)
+                        {
+                            <p class="alert"> @ViewBag.uyarı</p>
+                        }*@
                         <header>Giriş Yap</header>
                         @using (Html.BeginForm("Index", "Login", FormMethod.Post))
                         {
@@ -38,9 +42,10 @@
                             <div class="input-field">
                                 <input type="submit" class="submit" value="Giriş Yap">
                             </div>
+
                         }
                         <div class="signin">
-                            <span>Şifrenizi mi unuttunuz?<a href="#"> Buraya Tıklayın</a></span>
+                            <span>Şifrenizi mi unuttunuz?<a href="/Login/ForgotMyPassword"> Buraya Tıklayın</a></span>
                         </div>
                     </div>
                 </div>
