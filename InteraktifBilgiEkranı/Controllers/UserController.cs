@@ -129,5 +129,12 @@ namespace InteraktifBilgiEkranı.Controllers
             Um.UserChangeStatus(userValues);
             return RedirectToAction("Index");
         }
+
+        public ActionResult ReportUser()
+        {
+            ViewBag.title = "Kullanıcı Raporlama Sayfası";
+            var userValues = Um.GetList();
+            return View(userValues);
+        }
     }
 }

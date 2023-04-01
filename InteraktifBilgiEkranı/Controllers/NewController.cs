@@ -124,5 +124,12 @@ namespace InteraktifBilgiEkranı.Controllers
             Nm.NewChangeStatus(newValues);
             return RedirectToAction("Index");
         }
+
+        public ActionResult ReportNew()
+        {
+            ViewBag.title = "Haber Raporlama Sayfası";
+            var newValues = Nm.GetList();
+            return View(newValues);
+        }
     }
 }

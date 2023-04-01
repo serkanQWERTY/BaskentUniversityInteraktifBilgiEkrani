@@ -60,5 +60,12 @@ namespace InteraktifBilgiEkranı.Controllers
             Fm.FacultyUpdate(p);
             return RedirectToAction("Index");
         }
+
+        public ActionResult ReportFaculty()
+        {
+            ViewBag.title = "Fakülte Raporlama Sayfası";
+            var facultyValues = Fm.GetList();
+            return View(facultyValues);
+        }
     }
 }

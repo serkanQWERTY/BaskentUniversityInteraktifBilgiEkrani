@@ -143,6 +143,7 @@
     <Compile Include="Controllers\FacultyController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\NewController.cs" />
+    <Compile Include="Controllers\NewGalleryController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\SliderController.cs" />
     <Compile Include="Controllers\TvController.cs" />
@@ -2538,6 +2539,12 @@
     <Content Include="Views\User\EditUser.cshtml" />
     <Content Include="Views\Slider\Index.cshtml" />
     <Content Include="Views\Department\ReportDepartment.cshtml" />
+    <Content Include="Views\Faculty\ReportFaculty.cshtml" />
+    <Content Include="Views\New\ReportNew.cshtml" />
+    <Content Include="Views\Role\ReportRole.cshtml" />
+    <Content Include="Views\User\ReportUser.cshtml" />
+    <Content Include="Views\Tv\ReportTv.cshtml" />
+    <Content Include="Views\NewGallery\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -77,5 +77,12 @@ namespace InteraktifBilgiEkranı.Controllers
             Tm.TvChangeStatus(tvValues);
             return RedirectToAction("Index");
         }
+
+        public ActionResult ReportTv()
+        {
+            ViewBag.title = "Ekran Raporlama Sayfası";
+            var tvValues = Tm.GetList();
+            return View(tvValues);
+        }
     }
 }

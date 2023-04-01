@@ -61,5 +61,12 @@ namespace InteraktifBilgiEkranı.Controllers
             Rm.RoleUpdate(p);
             return RedirectToAction("Index");
         }
+
+        public ActionResult ReportRole()
+        {
+            ViewBag.title = "Yetkinlik Raporlama Sayfası";
+            var facultyValues = Rm.GetList();
+            return View(facultyValues);
+        }
     }
 }

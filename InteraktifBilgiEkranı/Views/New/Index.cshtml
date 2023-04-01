@@ -64,7 +64,7 @@
                         <span class="@badgeStatusColor">@newStatus</span>
                     </td>
                     <td>@item.NewDescription</td>
-                    <td>@item.User.UserName</td>
+                    <td>@item.User.Role.RoleName  @item.User.UserName @item.User.UserSurname</td>
                     <td>@item.Tv.TvDescription</td>
                     <td><a href="/New/EditNew/@item.NewID" class="btn btn-info">Güncelle</a></td>
                     <td>
@@ -89,5 +89,7 @@
     </div>
     <br />
     <a href="/New/AddNew" class="btn btn-primary">Yeni Haber Yarat</a>
+    <a href="/New/ReportNew" class="btn btn-primary m-md-2">Rapor</a>
+    <a href="/NewGallery/Index" class="btn btn-primary m-md-2">Galeri</a>
 </div>
 

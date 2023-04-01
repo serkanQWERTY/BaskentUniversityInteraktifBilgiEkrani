@@ -86,6 +86,5 @@ namespace InteraktifBilgiEkranı.Controllers
             var departmentValues = Dm.GetList();
             return View(departmentValues);
         }
-
     }
 }

@@ -32,54 +32,55 @@
             </tr>
             @foreach (var item in Model)
             {
-        <tr>
-            <td>@item.TvID</td>
-            <td>@item.TvDescription</td>
-            <td>@item.TvAddress</td>
-            <td>
-                <div class="time-label">
-                    <span>@(((DateTime)item.TvCreationDate).ToString("dd-MM-yyyy"))</span>
-                </div>
-            </td>
-            <td>
-                @switch (item.TvStatus)
-                {
-                    case true:
-                        badgeStatusColor = "badge badge-success";
-                        buttonStatusColor = "btn btn-warning";
-                        tvStatus = "Aktif Durum";
-                        break;
-                    case false:
-                        badgeStatusColor = "badge badge-warning";
-                        buttonStatusColor = "btn btn-success";
-                        tvStatus = "Pasif Durum";
-                        break;
-                }
-                <span class="@badgeStatusColor">@tvStatus</span>
-            </td>
-            <td>@item.Department.DepartmentName</td>
-            <td><a href="/Tv/EditTv/@item.TvID" class="btn btn-info">Güncelle</a></td>
-            <td>
-                <a class="@buttonStatusColor" href="/Tv/ChangeStatusTv/@item.TvID">
+                <tr>
+                    <td>@item.TvID</td>
+                    <td>@item.TvDescription</td>
+                    <td>@item.TvAddress</td>
+                    <td>
+                        <div class="time-label">
+                            <span>@(((DateTime)item.TvCreationDate).ToString("dd-MM-yyyy"))</span>
+                        </div>
+                    </td>
+                    <td>
+                        @switch (item.TvStatus)
+                        {
+                            case true:
+                                badgeStatusColor = "badge badge-success";
+                                buttonStatusColor = "btn btn-warning";
+                                tvStatus = "Aktif Durum";
+                                break;
+                            case false:
+                                badgeStatusColor = "badge badge-warning";
+                                buttonStatusColor = "btn btn-success";
+                                tvStatus = "Pasif Durum";
+                                break;
+                        }
+                        <span class="@badgeStatusColor">@tvStatus</span>
+                    </td>
+                    <td>@item.Department.DepartmentName</td>
+                    <td><a href="/Tv/EditTv/@item.TvID" class="btn btn-info">Güncelle</a></td>
+                    <td>
+                        <a class="@buttonStatusColor" href="/Tv/ChangeStatusTv/@item.TvID">
 
-                    @if (item.TvStatus == true)
-                    {
-                        checkStatus = "Pasif Yap";
-                    }
-                    else
-                    {
-                        checkStatus = "Aktif Yap";
-                    }
-                    @checkStatus
+                            @if (item.TvStatus == true)
+                            {
+                                checkStatus = "Pasif Yap";
+                            }
+                            else
+                            {
+                                checkStatus = "Aktif Yap";
+                            }
+                            @checkStatus
 
-                </a>
-            </td>
-            <td><a href="/Tv/DeleteTv/@item.TvID" class="btn btn-danger">Sil</a></td>
-        </tr>
+                        </a>
+                    </td>
+                    <td><a href="/Tv/DeleteTv/@item.TvID" class="btn btn-danger">Sil</a></td>
+                </tr>
             }
         </table>
     </div>
     <br />
     <a href="/Tv/AddTv" class="btn btn-primary">Yeni Ekran Yarat</a>
+    <a href="/Tv/ReportTv" class="btn btn-primary m-md-2">Rapor</a>
 </div>
 
