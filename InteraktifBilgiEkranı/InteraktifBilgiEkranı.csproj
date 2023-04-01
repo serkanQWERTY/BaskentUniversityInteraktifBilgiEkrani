@@ -2119,6 +2119,10 @@
     <Content Include="light\ui-tabs-accordion.html" />
     <Content Include="light\ui-typograpy.html" />
     <Content Include="light\widgets.html" />
+    <Content Include="light\ımıcıs\images\2.jpg" />
+    <Content Include="light\ımıcıs\images\DJI_0079.jpeg" />
+    <Content Include="light\ımıcıs\index.html" />
+    <Content Include="light\ımıcıs\style.css" />
     <Content Include="login-form-19\css\bootstrap.min.css" />
     <Content Include="login-form-19\css\bootstrap\mixins\_border-radius.css" />
     <Content Include="login-form-19\css\bootstrap\mixins\_screen-reader.css" />
