@@ -80,12 +80,17 @@ namespace InteraktifBilgiEkranı.Controllers
                 WebMail.Password = "ntxrkkvzavktxqqe";
                 WebMail.SmtpPort = 587;
                 WebMail.Send(usermail, "Şifre Sıfırlama İşlemi", "Merhaba " + mail.UserName + mail.UserSurname+"," + " <br/> yeni şifreniz: " + newpassword + " olarak belirlenmiştir." + "<br/> İyi günler dileriz.");
-                ViewBag.Uyari = " Mesajınız Başarı ile gönderilmiştir.";
+                ViewBag.Uyari = "Mesajınız Başarı ile gönderilmiştir.";
             }
             else
             {
-                ViewBag.Uyari = " Hata oluştu. Tekrar Deneyiniz:";
+                ViewBag.Uyari = "Hata oluştu. Tekrar Deneyiniz:";
             }
+            return View();
+        }
+
+        public ActionResult ConfirmResetPassword()
+        {
             return View();
         }
 
