@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
@@ -6,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace InteraktifBilgiEkranı.Controllers
@@ -69,6 +71,7 @@ namespace InteraktifBilgiEkranı.Controllers
             Um.UserAdd(p);
             return RedirectToAction("Index");
         }
+
 
         [HttpGet]
         public ActionResult EditUser(int id)
