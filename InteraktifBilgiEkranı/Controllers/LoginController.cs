@@ -81,7 +81,7 @@ namespace InteraktifBilgiEkranı.Controllers
                 WebMail.UserName = "baskentbilgiekrani@gmail.com";
                 WebMail.Password = "ntxrkkvzavktxqqe";
                 WebMail.SmtpPort = 587;
-                WebMail.Send(usermail, "Şifre Sıfırlama İşlemi", "Merhaba " + mail.UserName + mail.UserSurname+"," + " <br/> yeni şifreniz: " + newpassword + " olarak belirlenmiştir." + "<br/> İyi günler dileriz.");
+                WebMail.Send(usermail, "Şifre Sıfırlama İşlemi", "Merhaba " + mail.UserName + mail.UserSurname+"," + " <br/> Yeni şifreniz: " + newpassword + " olarak belirlenmiştir." + "<br/> İyi günler dileriz.");
                 ViewBag.Uyari = "Mesajınız Başarı ile gönderilmiştir.";
             }
             else
