@@ -24,8 +24,8 @@ namespace InteraktifBilgiEkranı.Controllers
         {
             Context c = new Context();
             var infos = c.Users.Where(x => x.UserMail == p.UserMail).SingleOrDefault();
-            if(infos.UserMail==p.UserMail && infos.UserPassword == Crypto.Hash(p.UserPassword,"MD5")){
-
+            if(infos.UserMail==p.UserMail && infos.UserPassword == Crypto.Hash(p.UserPassword, "MD5"))
+            {
                 FormsAuthentication.SetAuthCookie(infos.UserMail, false);
                 Session["UserMail"] = infos.UserMail;
                 return RedirectToAction("Index", "About");
@@ -71,6 +71,8 @@ namespace InteraktifBilgiEkranı.Controllers
                 int newpassword = rnd.Next();
 
                 User user = new User();
+
+                //mail.UserPassword = sifrelecoz.sifrele(usermail, Convert.ToString(newpassword));
                 mail.UserPassword = Crypto.Hash(Convert.ToString(newpassword), "MD5");
                 c.SaveChanges();
 
