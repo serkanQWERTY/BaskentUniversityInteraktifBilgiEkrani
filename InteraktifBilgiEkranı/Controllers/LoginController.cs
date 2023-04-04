@@ -24,7 +24,7 @@ namespace InteraktifBilgiEkranı.Controllers
         {
             Context c = new Context();
             var infos = c.Users.Where(x => x.UserMail == p.UserMail).SingleOrDefault();
-            if(infos.UserMail==p.UserMail && infos.UserPassword == Crypto.Hash(p.UserPassword, "MD5"))
+            if (infos.UserMail == p.UserMail && infos.UserPassword == Crypto.Hash(p.UserPassword, "MD5"))
             {
                 FormsAuthentication.SetAuthCookie(infos.UserMail, false);
                 Session["UserMail"] = infos.UserMail;
@@ -35,7 +35,7 @@ namespace InteraktifBilgiEkranı.Controllers
                 //ViewBag.uyarı = "Kullanıcı adı veya Şifre Yanlış";
                 return RedirectToAction("Index");
             }
-            
+
             //Context c = new Context();
             //var infos = c.Users.FirstOrDefault(x => x.UserMail == p.UserMail &&
             //x.UserPassword == p.UserPassword);
@@ -63,6 +63,8 @@ namespace InteraktifBilgiEkranı.Controllers
         public ActionResult ForgotMyPassword(string usermail)
         {
             Context c = new Context();
+            User user = new User();
+
             var mail = c.Users.Where(x => x.UserMail == usermail).SingleOrDefault();
 
             if (mail != null)
@@ -70,9 +72,6 @@ namespace InteraktifBilgiEkranı.Controllers
                 Random rnd = new Random();
                 int newpassword = rnd.Next();
 
-                User user = new User();
-
-                //mail.UserPassword = sifrelecoz.sifrele(usermail, Convert.ToString(newpassword));
                 mail.UserPassword = Crypto.Hash(Convert.ToString(newpassword), "MD5");
                 c.SaveChanges();
 
@@ -81,7 +80,7 @@ namespace InteraktifBilgiEkranı.Controllers
                 WebMail.UserName = "baskentbilgiekrani@gmail.com";
                 WebMail.Password = "ntxrkkvzavktxqqe";
                 WebMail.SmtpPort = 587;
-                WebMail.Send(usermail, "Şifre Sıfırlama İşlemi", "Merhaba " + mail.UserName + mail.UserSurname+"," + " <br/> Yeni şifreniz: " + newpassword + " olarak belirlenmiştir." + "<br/> İyi günler dileriz.");
+                WebMail.Send(usermail, "Şifre Sıfırlama İşlemi", "Merhaba " + mail.UserName + mail.UserSurname + "," + " <br/> Yeni şifreniz: " + newpassword + " olarak belirlenmiştir." + "<br/> İyi günler dileriz.");
                 ViewBag.Uyari = "Mesajınız Başarı ile gönderilmiştir.";
             }
             else

@@ -72,7 +72,6 @@
     <Compile Include="Concrete\RoleManager.cs" />
     <Compile Include="Concrete\TvManager.cs" />
     <Compile Include="Concrete\UserManager.cs" />
-    <Compile Include="MD5\sifrelecoz.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
