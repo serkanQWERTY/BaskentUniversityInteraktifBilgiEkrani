@@ -81,13 +81,8 @@ namespace InteraktifBilgiEkranı.Controllers
                 WebMail.Password = "ntxrkkvzavktxqqe";
                 WebMail.SmtpPort = 587;
                 WebMail.Send(usermail, "Şifre Sıfırlama İşlemi", "Merhaba " + mail.UserName + mail.UserSurname + "," + " <br/> Yeni şifreniz: " + newpassword + " olarak belirlenmiştir." + "<br/> İyi günler dileriz.");
-                ViewBag.Uyari = "Mesajınız Başarı ile gönderilmiştir.";
             }
-            else
-            {
-                ViewBag.Uyari = "Hata oluştu. Tekrar Deneyiniz:";
-            }
-            return View();
+            return RedirectToAction("ConfirmResetPassword","Login");
         }
 
         public ActionResult ConfirmResetPassword()

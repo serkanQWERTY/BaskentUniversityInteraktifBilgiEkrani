@@ -28,7 +28,7 @@
                         {
                             <p class="alert"> @ViewBag.uyarı</p>
                         }*@
-                        <header>Giriş Yap</header>
+                        <header>Kullanıcı Girişi</header>
                         @using (Html.BeginForm("Index", "Login", FormMethod.Post))
                         {
                             <div class="input-field">
@@ -40,12 +40,12 @@
                                 <label for="password">Password</label>
                             </div>
                             <div class="input-field">
-                                <input type="submit" class="submit" value="Giriş Yap">
+                                <input type="submit" class="btn btn-lg btn-primary btn-block" value="Giriş Yap">
                             </div>
 
                         }
                         <div class="signin">
-                            <span>Şifrenizi mi unuttunuz?<a href="/Login/ForgotMyPassword"> Buraya Tıklayın.</a></span>
+                            <span>Şifre yenilemeye mi ihtiyacınız var?<a href="/Login/ForgotMyPassword"> Buraya Tıklayın.</a></span>
                         </div>
                     </div>
                 </div>
