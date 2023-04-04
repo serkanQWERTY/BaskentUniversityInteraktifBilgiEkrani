@@ -68,7 +68,6 @@ namespace InteraktifBilgiEkranı.Controllers
                 p.UserPath = "/ImageUser/" + dosyaadi + uzanti;
             }
             p.UserCreationDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-            p.UserPassword = Crypto.Hash(p.UserPassword, "MD5");
             Um.UserAdd(p);
             return RedirectToAction("Index");
         }
