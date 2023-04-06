@@ -98,7 +98,7 @@ namespace InteraktifBilgiEkranı.Controllers
             return View();
         }
 
-        public ActionResult LogOut()
+        public ActionResult Logout()
         {
             //Session["UserID"] = null;
             Session["UserMail"] = null;
