@@ -145,6 +145,7 @@
     <Compile Include="Controllers\NewController.cs" />
     <Compile Include="Controllers\NewGalleryController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="Controllers\SendTicketController.cs" />
     <Compile Include="Controllers\SliderController.cs" />
     <Compile Include="Controllers\TvController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -2554,6 +2555,8 @@
     <Content Include="Views\Login\ForgotMyPassword.cshtml" />
     <Content Include="Views\Login\ConfirmResetPassword.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\SendTicket\Index.cshtml" />
+    <Content Include="Views\SendTicket\ConfirmSendTicket.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
