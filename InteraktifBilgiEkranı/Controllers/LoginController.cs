@@ -32,7 +32,7 @@ namespace InteraktifBilgiEkranı.Controllers
             }
             else
             {
-                //ViewBag.uyarı = "Kullanıcı adı veya Şifre Yanlış";
+                ViewBag.uyarı = "Kullanıcı adı veya Şifre Yanlış";
                 return RedirectToAction("Index");
             }
 
@@ -69,10 +69,18 @@ namespace InteraktifBilgiEkranı.Controllers
 
             if (mail != null)
             {
-                Random rnd = new Random();
-                int newpassword = rnd.Next();
+                var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                var stringChars = new char[8];
+                var random = new Random();
 
-                mail.UserPassword = Crypto.Hash(Convert.ToString(newpassword), "MD5");
+                for (int i = 0; i < stringChars.Length; i++)
+                {
+                    stringChars[i] = chars[random.Next(chars.Length)];
+                }
+
+                var finalString = new String(stringChars);
+
+                mail.UserPassword = Crypto.Hash(Convert.ToString(finalString), "MD5");
                 c.SaveChanges();
 
                 WebMail.SmtpServer = "smtp.gmail.com";
@@ -80,7 +88,7 @@ namespace InteraktifBilgiEkranı.Controllers
                 WebMail.UserName = "baskentbilgiekrani@gmail.com";
                 WebMail.Password = "ntxrkkvzavktxqqe";
                 WebMail.SmtpPort = 587;
-                WebMail.Send(usermail, "Şifre Sıfırlama İşlemi", "Merhaba " + mail.UserName + mail.UserSurname + "," + " <br/> Yeni şifreniz: " + newpassword + " olarak belirlenmiştir." + "<br/> İyi günler dileriz.");
+                WebMail.Send(usermail, "Şifre Sıfırlama İşlemi", "Merhaba " + mail.UserName + mail.UserSurname + "," + " <br/> Yeni şifreniz: " + finalString + " olarak belirlenmiştir." + "<br/> İyi günler dileriz.");
             }
             return RedirectToAction("ConfirmResetPassword","Login");
         }
