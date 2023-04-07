@@ -53,7 +53,7 @@
             <div class="imgholder">
                 @foreach (var item in Model)
                 {
-                    if (item.NewStatus == true)
+                    if (item.NewStatus == true/* && item.Tv.TvID==3*/)
                     {
                         <img src="@item.NewPath" alt="">
                     }
