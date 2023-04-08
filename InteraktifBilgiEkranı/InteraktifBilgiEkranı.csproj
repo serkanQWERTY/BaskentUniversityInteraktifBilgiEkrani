@@ -2557,6 +2557,12 @@
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\SendTicket\Index.cshtml" />
     <Content Include="Views\SendTicket\ConfirmSendTicket.cshtml" />
+    <Content Include="Views\Slider\Bio.cshtml" />
+    <Content Include="Views\Slider\CE.cshtml" />
+    <Content Include="Views\Slider\EE.cshtml" />
+    <Content Include="Views\Slider\Endustri.cshtml" />
+    <Content Include="Views\Slider\Insaat.cshtml" />
+    <Content Include="Views\Slider\Makine.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

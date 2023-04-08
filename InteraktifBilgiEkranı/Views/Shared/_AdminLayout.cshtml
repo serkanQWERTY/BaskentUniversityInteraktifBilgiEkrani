@@ -119,12 +119,41 @@
                             <span class="ml-3 item-text">KULLANICI İŞLEMLERİ</span>
                         </a>
                     </li>
-                    <li class="nav-item w-100">
-                        <a class="nav-link" href="/Slider/Index">
+                    <li class="nav-item dropdown">
+                        <a href="#forms" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
                             <i class="fe fe-24 fe-play"></i>
-                            <span class="ml-3 item-text">SİTEYE GİT</span>
+                            <span class="ml-3 item-text">HABER EKRANLARI</span>
                         </a>
+                        <ul class="collapse list-unstyled pl-4 w-100" id="forms">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Slider/CE"><span class="ml-1 item-text">Bilgisayar Mühendisliği</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Slider/Bio"><span class="ml-1 item-text">Biyomedikal Mühendisliği</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Slider/EE"><span class="ml-1 item-text">Elektrik - Elektronik Müh.</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Slider/Endustri"><span class="ml-1 item-text">Endüstri Mühendisliği</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Slider/Insaat"><span class="ml-1 item-text">İnşaat Mühendisliği</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Slider/Makine"><span class="ml-1 item-text">Makine Mühendisliği</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Slider/Index"><span class="ml-1 item-text">Ana Ekran</span></a>
+                            </li>
+                        </ul>
                     </li>
+                    @*<li class="nav-item w-100">
+                            <a class="nav-link" href="/Slider/Index">
+                                <i class="fe fe-24 fe-play"></i>
+                                <span class="ml-3 item-text">SİTEYE GİT</span>
+                            </a>
+                        </li>*@
                 </ul>
             </nav>
         </aside>
@@ -185,7 +214,7 @@
     <script src="/light/js/datamaps.custom.js"></script>
     <script src="/light/js/Chart.min.js"></script>
     <script>
-    /* defind global options */
+        /* defind global options */
         Chart.defaults.global.defaultFontFamily = base.defaultFontFamily;
         Chart.defaults.global.defaultFontColor = colors.mutedColor;</script>
     <script src="/light/js/gauge.min.js"></script>
@@ -201,7 +230,7 @@
     <script src='/light/js/uppy.min.js'></script>
     <script src='/light/js/quill.min.js'></script>
     <script>
-    $('.select2').select2(
+        $('.select2').select2(
             {
                 theme: 'bootstrap4',
             });
@@ -372,7 +401,7 @@
             }, false);
         })();</script>
     <script>
-    var uptarg = document.getElementById('drag-drop-area');
+        var uptarg = document.getElementById('drag-drop-area');
         if (uptarg) {
             var uppy = Uppy.Core().use(Uppy.Dashboard,
                 {
@@ -395,7 +424,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
+        window.dataLayer = window.dataLayer || [];
 
         function gtag() {
             dataLayer.push(arguments);
