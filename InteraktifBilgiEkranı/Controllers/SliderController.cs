@@ -17,5 +17,41 @@ namespace InteraktifBilgiEkranı.Controllers
             var newValues = Nm.GetList();
             return View(newValues);
         }
+
+        public ActionResult Bio()
+        {
+            var newValues = Nm.GetList();
+            return View(newValues);
+        }
+
+        public ActionResult CE()
+        {
+            var newValues = Nm.GetList();
+            return View(newValues);
+        }
+
+        public ActionResult EE()
+        {
+            var newValues = Nm.GetList();
+            return View(newValues);
+        }
+
+        public ActionResult Endustri()
+        {
+            var newValues = Nm.GetList();
+            return View(newValues);
+        }
+
+        public ActionResult Insaat()
+        {
+            var newValues = Nm.GetList();
+            return View(newValues);
+        }
+
+        public ActionResult Makine()
+        {
+            var newValues = Nm.GetList();
+            return View(newValues);
+        }
     }
 }
