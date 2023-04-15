@@ -9,11 +9,8 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
     <title>İnteraktif Bilgi Ekranı</title>
-    <!-- Simple bar CSS -->
     <link rel="stylesheet" href="/light/css/simplebar.css">
-    <!-- Fonts CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <!-- Icons CSS -->
     <link rel="stylesheet" href="/light/css/feather.css">
     <link rel="stylesheet" href="/light/css/select2.css">
     <link rel="stylesheet" href="/light/css/dropzone.css">
@@ -21,9 +18,7 @@
     <link rel="stylesheet" href="/light/css/jquery.steps.css">
     <link rel="stylesheet" href="/light/css/jquery.timepicker.css">
     <link rel="stylesheet" href="/light/css/quill.snow.css">
-    <!-- Date Range Picker CSS -->
     <link rel="stylesheet" href="/light/css/daterangepicker.css">
-    <!-- App CSS -->
     <link rel="stylesheet" href="/light/css/app-light.css" id="lightTheme">
     <link rel="stylesheet" href="/light/css/app-dark.css" id="darkTheme" disabled>
 </head>
@@ -162,12 +157,6 @@
                             </li>
                         </ul>
                     </li>
-                    @*<li class="nav-item w-100">
-                            <a class="nav-link" href="/Slider/Index">
-                                <i class="fe fe-24 fe-play"></i>
-                                <span class="ml-3 item-text">SİTEYE GİT</span>
-                            </a>
-                        </li>*@
                 </ul>
             </nav>
         </aside>
@@ -175,10 +164,6 @@
  
 
 
-
-
-
-        <!-- main -->
         <main role="main" class="main-content">
             <div class="container-fluid">
                 <div class="row justify-content-center">
@@ -201,11 +186,11 @@
                         </div>
 
 
-                    </div> <!-- .col-12 -->
-                </div> <!-- .row -->
-            </div> <!-- .container-fluid -->
+                    </div> 
+                </div> 
+            </div> 
         </main>
-    </div> <!-- .wrapper -->
+    </div> 
 
 
 
@@ -228,7 +213,6 @@
     <script src="/light/js/datamaps.custom.js"></script>
     <script src="/light/js/Chart.min.js"></script>
     <script>
-        /* defind global options */
         Chart.defaults.global.defaultFontFamily = base.defaultFontFamily;
         Chart.defaults.global.defaultFontColor = colors.mutedColor;</script>
     <script src="/light/js/gauge.min.js"></script>
@@ -266,9 +250,9 @@
         $('.time-input').timepicker(
             {
                 'scrollDefault': 'now',
-                'zindex': '9999' /* fix modal open */
+                'zindex': '9999' 
             });
-        /** date range picker */
+        
         if ($('.datetimes').length) {
             $('.datetimes').daterangepicker(
                 {
@@ -328,7 +312,6 @@
                 },
                 placeholder: "___.___.___.___"
             });
-        // editor
         var editor = document.getElementById('editor');
         if (editor) {
             var toolbarOptions = [
@@ -369,23 +352,23 @@
                     },
                     {
                         'indent': '+1'
-                    }], // outdent/indent
+                    }], 
                 [
                     {
                         'direction': 'rtl'
-                    }], // text direction
+                    }], 
                 [
                     {
                         'color': []
                     },
                     {
                         'background': []
-                    }], // dropdown with defaults from theme
+                    }], 
                 [
                     {
                         'align': []
                     }],
-                ['clean'] // remove formatting button
+                ['clean'] 
             ];
             var quill = new Quill(editor,
                 {
@@ -396,13 +379,10 @@
                     theme: 'snow'
                 });
         }
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function () {
             'use strict';
             window.addEventListener('load', function () {
-                // Fetch all the forms we want to apply custom Bootstrap validation styles to
                 var forms = document.getElementsByClassName('needs-validation');
-                // Loop over them and prevent submission
                 var validation = Array.prototype.filter.call(forms, function (form) {
                     form.addEventListener('submit', function (event) {
                         if (form.checkValidity() === false) {
@@ -435,7 +415,6 @@
             });
         }</script>
     <script src="/light/js/apps.js"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
