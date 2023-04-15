@@ -23,12 +23,12 @@
                 </div>
                 <div class="col-md-6 right">
                     <div class="input-box">
-                        <header>INTERAKTİF BİLGİ EKRANI</header>
+                        <header>İNTERAKTİF BİLGİ EKRANI</header>
                         @*@if (Session["UserMail"] == null)
-                        {
-                            <p class="alert"> @ViewBag.uyarı</p>
-                        }
-                        <header>Kullanıcı Girişi</header>*@
+        {
+            <p class="alert"> @ViewBag.uyarı</p>
+        }
+        <header>Kullanıcı Girişi</header>*@
                         @using (Html.BeginForm("Index", "Login", FormMethod.Post))
                         {
                             <div class="input-field">
@@ -37,7 +37,7 @@
                             </div>
                             <div class="input-field">
                                 <input type="password" class="input" name="UserPassword" required>
-                                <label for="password">Password</label>
+                                <label for="password">Şifre</label>
                             </div>
                             <div class="input-field">
                                 <input type="submit" class="btn btn-lg btn-primary btn-block" value="Giriş Yap">

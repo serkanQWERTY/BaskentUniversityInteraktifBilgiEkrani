@@ -2016,6 +2016,7 @@
     <Content Include="light\auth-login.html" />
     <Content Include="light\auth-register.html" />
     <Content Include="light\auth-resetpw.html" />
+    <Content Include="light\Baskent_University_Logo.png" />
     <Content Include="light\calendar.html" />
     <Content Include="light\chart-apexcharts.html" />
     <Content Include="light\chart-chartjs.html" />
@@ -2094,6 +2095,8 @@
     <Content Include="light\js\tinycolor-min.js" />
     <Content Include="light\js\topojson.min.js" />
     <Content Include="light\js\uppy.min.js" />
+    <Content Include="light\Logo.png" />
+    <Content Include="light\Logoxxx.png" />
     <Content Include="light\page-404.html" />
     <Content Include="light\page-500.html" />
     <Content Include="light\page-blank.html" />
