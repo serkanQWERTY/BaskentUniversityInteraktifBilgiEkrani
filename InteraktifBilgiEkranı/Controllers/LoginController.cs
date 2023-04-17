@@ -103,7 +103,7 @@ namespace InteraktifBilgiEkranı.Controllers
             //Session["UserID"] = null;
             Session["UserMail"] = null;
             Session.Abandon();
-            return RedirectToAction("Login", "Index");
+            return RedirectToAction("Index", "Login");
         }
 
     }
