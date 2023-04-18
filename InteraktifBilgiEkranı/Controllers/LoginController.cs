@@ -35,21 +35,6 @@ namespace InteraktifBilgiEkranı.Controllers
                 ViewBag.uyarı = "Kullanıcı adı veya Şifre Yanlış";
                 return RedirectToAction("Index");
             }
-
-            //Context c = new Context();
-            //var infos = c.Users.FirstOrDefault(x => x.UserMail == p.UserMail &&
-            //x.UserPassword == p.UserPassword);
-
-            //if (infos != null)
-            //{
-            //    FormsAuthentication.SetAuthCookie(infos.UserMail,false);
-            //    Session["UserMail"] = infos.UserMail;
-            //    return RedirectToAction("Index", "About");
-            //}
-            //else
-            //{
-            //    return RedirectToAction("Index");
-            //}
         }
 
         [HttpGet]

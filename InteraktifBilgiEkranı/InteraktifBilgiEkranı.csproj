@@ -1998,6 +1998,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="light\assets\avatars\05481087-9ab1-485b-bea4-6bf0ab213217.jpg" />
     <Content Include="light\assets\avatars\face-1.jpg" />
     <Content Include="light\assets\avatars\face-2.jpg" />
     <Content Include="light\assets\avatars\face-3.jpg" />
@@ -2006,6 +2007,7 @@
     <Content Include="light\assets\avatars\face-6.jpg" />
     <Content Include="light\assets\avatars\face-7.jpg" />
     <Content Include="light\assets\avatars\face-8.jpg" />
+    <Content Include="light\assets\avatars\user_profile_sing_icon_black_white_circle_human_icon_sketch_6921878.jpg" />
     <Content Include="light\assets\images\logo.svg" />
     <Content Include="light\assets\images\qrcode.svg" />
     <Content Include="light\assets\products\p1.jpg" />
