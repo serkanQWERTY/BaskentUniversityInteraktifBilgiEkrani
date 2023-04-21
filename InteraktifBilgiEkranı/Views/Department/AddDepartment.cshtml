@@ -24,7 +24,10 @@
 
             <div class="form-group mb-3">
                 @Html.Label("Bölüm Durumu")
-                @Html.TextBoxFor(x => x.DepartmentStatus, new { @class = "form-control" })
+                <br />
+                @Html.RadioButtonFor(x => x.DepartmentStatus, "True")@Html.Label("Aktif")
+                <br />
+                @Html.RadioButtonFor(x => x.DepartmentStatus, "False")@Html.Label("Pasif")
             </div>
 
             <div class="form-group mb-3">
