@@ -8,31 +8,35 @@
 {
     <div class="col-md-12" style="width: 450px">
         <div class="card-body">
-            <p class="mb-2"><strong>Tv Ekleme Sayfası</strong></p>
+            <p class="mb-2"><strong>Ekran Ekleme Sayfası</strong></p>
             <br />
 
             <div class="form-group mb-3">
-                @Html.Label("Tv Açıklaması")
+                @Html.Label("Ekran Açıklaması")
                 @Html.TextBoxFor(x => x.TvDescription, new { @class = "form-control" })
             </div>
 
             <div class="form-group mb-3">
-                @Html.Label("Tv Adresi")
+                @Html.Label("Ekran Adresi")
                 @Html.TextBoxFor(x => x.TvAddress, new { @class = "form-control" })
             </div>
 
             <div class="form-group mb-3">
-                @Html.Label("Tarih")
+                @Html.Label("Ekran Yaratılış Tarihi")
                 @Html.TextBoxFor(x => x.TvCreationDate, new { @class = "form-control" })
             </div>
 
+
             <div class="form-group mb-3">
-                @Html.Label("Durum")
-                @Html.TextBoxFor(x => x.TvStatus, new { @class = "form-control" })
+                @Html.Label("Ekran Durumu")
+                <br />
+                @Html.RadioButtonFor(x => x.TvStatus, "True")@Html.Label("Aktif")
+                <br />
+                @Html.RadioButtonFor(x => x.TvStatus, "False")@Html.Label("Pasif")
             </div>
 
             <div class="form-group mb-3">
-                @Html.Label("Bölüm")
+                @Html.Label("Bağlı Olduğu Bölüm")
                 @Html.DropDownListFor(x => x.DepartmentID, (List<SelectListItem>)ViewBag.vld, new
                 { @class = "form-control" })
             </div>

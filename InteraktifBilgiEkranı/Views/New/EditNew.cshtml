@@ -29,23 +29,18 @@
             </div>
 
             <div class="form-group mb-3">
-                @Html.Label("Haber Durumu")
-                @Html.TextBoxFor(x => x.NewStatus, new { @class = "form-control" })
-            </div>
-
-            <div class="form-group mb-3">
                 @Html.Label("Haber Açıklaması")
                 @Html.TextBoxFor(x => x.NewDescription, new { @class = "form-control" })
             </div>
 
             <div class="form-group mb-3">
-                @Html.Label("Haber Yaratıcısı")
+                @Html.Label("İçerik Üreticisi")
                 @Html.DropDownListFor(x => x.UserID, (List<SelectListItem>)ViewBag.vlu,
                 new { @class = "form-control" })
             </div>
 
             <div class="form-group mb-3">
-                @Html.Label("Ekran")
+                @Html.Label("Gösterilecek Ekran")
                 @Html.DropDownListFor(x => x.TvID, (List<SelectListItem>)ViewBag.vlt,
                 new { @class = "form-control" })
             </div>

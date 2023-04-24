@@ -55,7 +55,7 @@ namespace InteraktifBilgiEkranı.Controllers
                                                  }
                                                  ).ToList();
             ViewBag.vlf = valueFaculty;
-            var departmentValues = Dm.GetByID(id);
+            var departmentValues = Dm.GetByID(id); 
             return View(departmentValues);
         }
 

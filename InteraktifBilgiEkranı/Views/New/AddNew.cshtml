@@ -27,24 +27,29 @@
 
             <div class="form-group mb-3">
                 @Html.Label("Haber Durumu")
-                @Html.TextBoxFor(x => x.NewStatus, new { @class = "form-control" })
+                <br />
+                @Html.RadioButtonFor(x => x.NewStatus, "True")@Html.Label("Aktif")
+                <br />
+                @Html.RadioButtonFor(x => x.NewStatus, "False")@Html.Label("Pasif")
             </div>
 
             <div class="form-group mb-3">
-                @Html.Label("Tv")
+                @Html.Label("Gösterilecek Ekran")
                 @Html.DropDownListFor(x => x.TvID, (List<SelectListItem>)ViewBag.vlt, new
                 { @class = "form-control" })
             </div>
 
             <div class="form-group mb-3">
-                @Html.Label("İçerik Sahibi")
+                @Html.Label("İçerik Üreticisi")
                 @Html.DropDownListFor(x => x.UserID, (List<SelectListItem>)ViewBag.vlu, new
                 { @class = "form-control" })
             </div>
+
             <div class="form-group mb-3">
                 @Html.LabelFor(x => x.NewPath, htmlAttributes: new { @class = "control-label col-md" })
                 <input type="file" name="NewPath" class="form-control" required placeholder="Resim Seçiniz" />
             </div>
+
             <button class="btn btn-primary">Kaydet</button>
             <a href="/New/Index" class="btn btn-primary m-md-2">Geri Git</a>
         </div>

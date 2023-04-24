@@ -8,7 +8,7 @@
 {
     <div class="col-md-12" style="width: 450px">
         <div class="card-body">
-            <p class="mb-2"><strong>Tv Güncelleme Sayfası</strong></p>
+            <p class="mb-2"><strong>Ekran Güncelleme Sayfası</strong></p>
             <br />
 
             @Html.HiddenFor(model => model.TvID)
@@ -19,27 +19,22 @@
         </div>*@
 
             <div class="form-group mb-3">
-                @Html.Label("Tv Açıklaması")
+                @Html.Label("Ekran Açıklaması")
                 @Html.TextBoxFor(x => x.TvDescription, new { @class = "form-control" })
             </div>
 
             <div class="form-group mb-3">
-                @Html.Label("Tv Adresi")
+                @Html.Label("Ekran Adresi")
                 @Html.TextBoxFor(x => x.TvAddress, new { @class = "form-control" })
             </div>
 
             <div class="form-group mb-3">
-                @Html.Label("Tv Durumu")
-                @Html.TextBoxFor(x => x.TvStatus, new { @class = "form-control" })
-            </div>
-
-            <div class="form-group mb-3">
-                @Html.Label("Tv Yaratılış Tarihi")
+                @Html.Label("Ekran Yaratılış Tarihi")
                 @Html.TextBoxFor(x => x.TvCreationDate, new { @class = "form-control" })
             </div>
 
             <div class="form-group mb-3">
-                @Html.Label("Bölüm")
+                @Html.Label("Bağlı Olduğu Bölüm")
                 @Html.DropDownListFor(x => x.DepartmentID, (List<SelectListItem>)ViewBag.vld,
                 new { @class = "form-control" })
             </div>
