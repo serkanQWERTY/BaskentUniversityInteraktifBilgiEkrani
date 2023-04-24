@@ -85,9 +85,7 @@ namespace InteraktifBilgiEkranı.Controllers
 
         public ActionResult Logout()
         {
-            //Session["UserID"] = null;
-            Session["UserMail"] = null;
-            Session.Abandon();
+            FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Login");
         }
 
