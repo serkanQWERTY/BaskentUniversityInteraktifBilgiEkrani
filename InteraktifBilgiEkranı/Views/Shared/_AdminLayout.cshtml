@@ -74,12 +74,14 @@
 
                 <!-- SIDE BAR-->
                 <ul class="navbar-nav flex-fill w-100 mb-2">
+                    @if (User.IsInRole("CAD")) {
                     <li class="nav-item w-100">
                         <a class="nav-link" href="/Faculty/Index">
                             <i class="fe fe-home fe-24"></i>
                             <span class="ml-3 item-text">FAKÜLTE İŞLEMLERİ</span>
                         </a>
                     </li>
+                    }
                     <li class="nav-item w-100">
                         <a class="nav-link" href="/Department/Index">
                             <i class="fe fe-layers fe-24"></i>

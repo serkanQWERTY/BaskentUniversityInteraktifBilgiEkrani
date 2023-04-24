@@ -15,7 +15,7 @@ namespace InteraktifBilgiEkranı.Controllers
         DepartmentManager Dm = new DepartmentManager(new EfDepartmentDAL());
         FacultyManager Fm = new FacultyManager(new EfFacultyDAL());
         // GET: Department
-        [Authorize]
+        [Authorize(Roles="ADM")]//Sadece ADM bu sayfayı görüntüleyebilir.
         public ActionResult Index()
         {
             var departmentValues = Dm.GetList();
