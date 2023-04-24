@@ -24,7 +24,7 @@ namespace InteraktifBilgiEkranı.Controllers
         private Context db = new Context();
 
         // GET: Sliders
-        [Authorize]
+        [Authorize(Roles="ADM,CAD,SEK,İDP")]
         public ActionResult Index()
         {
             var newValues = Nm.GetList();

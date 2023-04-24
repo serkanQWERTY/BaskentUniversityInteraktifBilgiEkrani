@@ -19,7 +19,7 @@ namespace InteraktifBilgiEkranı.Controllers
         DepartmentManager Dm = new DepartmentManager(new EfDepartmentDAL());
         FacultyManager Fm = new FacultyManager(new EfFacultyDAL());
         // GET: User
-        [Authorize]
+        [Authorize(Roles="ADM,CAD,SEK")]
         public ActionResult Index()
         {
             var userValues = Um.GetList();

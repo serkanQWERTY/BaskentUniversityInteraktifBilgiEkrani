@@ -14,7 +14,7 @@ namespace InteraktifBilgiEkranı.Controllers
     {
         // GET: Faculty
         FacultyManager Fm = new FacultyManager(new EfFacultyDAL());
-        [Authorize]
+        [Authorize(Roles="ADM")]
         public ActionResult Index()
         {
             var facultyValues = Fm.GetList();
