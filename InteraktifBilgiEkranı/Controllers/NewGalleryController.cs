@@ -12,6 +12,7 @@ namespace InteraktifBilgiEkranı.Controllers
     {
         // GET: NewGallery
         NewManager Nm = new NewManager(new EfNewDAL());
+        [Authorize]
         public ActionResult Index()
         {
             var galleryitems = Nm.GetList();
