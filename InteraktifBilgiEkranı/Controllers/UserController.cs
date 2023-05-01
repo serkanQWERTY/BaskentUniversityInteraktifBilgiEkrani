@@ -18,6 +18,7 @@ namespace InteraktifBilgiEkranı.Controllers
         RoleManager Rm = new RoleManager(new EfRoleDAL());
         DepartmentManager Dm = new DepartmentManager(new EfDepartmentDAL());
         FacultyManager Fm = new FacultyManager(new EfFacultyDAL());
+        Context c = new Context();
         // GET: User
         [Authorize(Roles="ADM,CAD,SEK")]
         public ActionResult Index()
@@ -139,6 +140,22 @@ namespace InteraktifBilgiEkranı.Controllers
             ViewBag.title = "Kullanıcı Raporlama Sayfası";
             var userValues = Um.GetList();
             return View(userValues);
+        }
+
+        [HttpGet]
+        public ActionResult UserProfile(int id = 0)
+        {
+            string p = (string)Session["UserMail"];
+            id = c.Users.Where(x => x.UserMail == p).Select(y => y.UserID).FirstOrDefault();
+            var userValues = Um.GetByID(id);
+            return View(userValues);
+        }
+
+        [HttpPost]
+        public ActionResult UserProfile(User p)
+        {
+            Um.UserUpdate(p);
+            return RedirectToAction("Index", "About");
         }
     }
 }

@@ -1,0 +1,50 @@
+﻿@model  EntityLayer.Concrete.User
+
+@{
+    ViewBag.Title = "UserProfile";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("UserProfile", "User", FormMethod.Post))
+{
+    <div class="col-md-12" style="width: 450px">
+        <div class="card-body">
+            <p class="mb-2"><strong>Kullanıcı Güncelleme Sayfası</strong></p>
+            <br />
+            @Html.HiddenFor(model => model.UserID)
+
+            <div class="form-group mb-3">
+                @Html.Label("Kullanıcı Adı")
+                @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.Label("Kullanıcı Soyadı")
+                @Html.TextBoxFor(x => x.UserSurname, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.Label("Kullanıcı Telefon")
+                @Html.TextBoxFor(x => x.UserPhone, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.Label("Kullanıcı Mail")
+                @Html.TextBoxFor(x => x.UserMail, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.Label("Kullanıcı Oluşturulma Tarihi")
+                @Html.TextBoxFor(x => x.UserCreationDate, new { @class = "form-control" })
+            </div>
+
+            @Html.HiddenFor(model => model.Permission)
+            @Html.HiddenFor(model => model.DepartmentID)
+            @Html.HiddenFor(model => model.FacultyID)
+
+
+            <button class="btn btn-primary">Kaydet</button>
+            <a href="/User/Index" class="btn btn-primary m-md-2">Geri Git</a>
+        </div>
+    </div>
+}
