@@ -131,6 +131,7 @@ namespace InteraktifBilgiEkranı.Controllers
                 Request.Files[0].SaveAs(Server.MapPath(path));
                 p.UserPath = "/ImageUser/" + dosyaadi + uzanti;
             }
+            p.UserStatus = true;
             Um.UserUpdate(p);
             return RedirectToAction("Index");
         }

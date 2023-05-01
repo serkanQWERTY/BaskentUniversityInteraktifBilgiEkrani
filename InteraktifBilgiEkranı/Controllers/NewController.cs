@@ -112,6 +112,7 @@ namespace InteraktifBilgiEkranı.Controllers
                 Request.Files[0].SaveAs(Server.MapPath(path));
                 p.NewPath = "/Image/" + dosyaadi + uzanti;
             }
+            p.NewStatus = true;
             Nm.NewUpdate(p);
             return RedirectToAction("Index");
         }
