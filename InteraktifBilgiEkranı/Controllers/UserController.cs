@@ -18,9 +18,9 @@ namespace InteraktifBilgiEkranı.Controllers
         RoleManager Rm = new RoleManager(new EfRoleDAL());
         DepartmentManager Dm = new DepartmentManager(new EfDepartmentDAL());
         FacultyManager Fm = new FacultyManager(new EfFacultyDAL());
-        Context c = new Context();
+        private Context c = new Context();
         // GET: User
-        [Authorize(Roles="ADM,CAD,SEK")]
+        [Authorize(Roles = "ADM,CAD,SEK,İDP")]
         public ActionResult Index()
         {
             var userValues = Um.GetList();
@@ -58,8 +58,11 @@ namespace InteraktifBilgiEkranı.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddUser(User p)
+        public ActionResult AddUser(User p , string q)
         {
+            string k = (string)Session["UserMail"];
+            q = c.Users.Where(x => x.UserMail == k).Select(y => y.Role.RoleShortName).FirstOrDefault();
+
             if (Request.Files.Count > 0)
             {
                 string dosyaadi = Path.GetFileName(Request.Files[0].FileName);
@@ -70,6 +73,17 @@ namespace InteraktifBilgiEkranı.Controllers
             }
             p.UserCreationDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             p.UserPassword = Crypto.Hash(p.UserPassword, "MD5");
+            switch (q)
+            {
+                case "ADM": p.Permission = 3;
+                    break;
+                case "CAD": p.Permission = 4;
+                    break;
+                case "SEK": p.Permission = 5;
+                    break;
+                case "İDP": p.Permission = 6;
+                    break;
+            }
             Um.UserAdd(p);
             return RedirectToAction("Index");
         }

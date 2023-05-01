@@ -116,7 +116,7 @@
                         <span class="ml-3 item-text">EKRAN İŞLEMLERİ</span>
                     </a>
                 </li>}
-                    @if (User.IsInRole("ADM") || User.IsInRole("CAD") || User.IsInRole("SEK"))
+                    @if (User.IsInRole("ADM") || User.IsInRole("CAD") || User.IsInRole("SEK") || User.IsInRole("İDP"))
                     {
                 <li class="nav-item w-100">
                     <a class="nav-link" href="/User/Index">

@@ -56,8 +56,11 @@ namespace InteraktifBilgiEkranı.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddNew(New p)
+        public ActionResult AddNew(New p,int id=0)
         {
+            string k = (string)Session["UserMail"];
+            id = db.Users.Where(x => x.UserMail == k).Select(y => y.UserID).FirstOrDefault();
+
             if (Request.Files.Count > 0)
             {
                 string dosyaadi = Path.GetFileName(Request.Files[0].FileName);
@@ -66,7 +69,10 @@ namespace InteraktifBilgiEkranı.Controllers
                 Request.Files[0].SaveAs(Server.MapPath(path));
                 p.NewPath = "/Image/" + dosyaadi + uzanti;
             }
+
             p.NewCreationDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+            p.UserID = id;
+
             Nm.NewAdd(p);
             return RedirectToAction("Index");
         }
