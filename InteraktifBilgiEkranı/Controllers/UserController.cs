@@ -73,6 +73,7 @@ namespace InteraktifBilgiEkranı.Controllers
             }
             p.UserCreationDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             p.UserPassword = Crypto.Hash(p.UserPassword, "MD5");
+
             switch (q)
             {
                 case "ADM": p.Permission = 3;
@@ -172,5 +173,18 @@ namespace InteraktifBilgiEkranı.Controllers
             Um.UserUpdate(p);
             return RedirectToAction("Index", "About");
         }
+
+        [HttpGet]
+        public ActionResult ChangeMyPassword()
+        {
+            return View();
+        }
+
+
+        //[HttpPost]
+        //public ActionResult ChangeMyPassword(User p, string password)
+        //{
+      
+        //}
     }
 }
