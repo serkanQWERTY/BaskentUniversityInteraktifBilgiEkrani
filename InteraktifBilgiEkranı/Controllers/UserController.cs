@@ -159,10 +159,10 @@ namespace InteraktifBilgiEkranı.Controllers
         }
 
         [HttpGet]
-        public ActionResult UserProfile(int id = 0)
+        public ActionResult UserProfile()
         {
             string p = (string)Session["UserMail"];
-            id = c.Users.Where(x => x.UserMail == p).Select(y => y.UserID).FirstOrDefault();
+            int id = c.Users.Where(x => x.UserMail == p).Select(y => y.UserID).FirstOrDefault();
             var userValues = Um.GetByID(id);
             return View(userValues);
         }

@@ -104,13 +104,23 @@ namespace InteraktifBilgiEkranı.Controllers
         [HttpPost]
         public ActionResult EditNew(New p)
         {
+            Context c = new Context();
+            var userimg = c.News.FirstOrDefault(a => a.NewID == p.NewID);
+
             if (Request.Files.Count > 0)
             {
                 string dosyaadi = Path.GetFileName(Request.Files[0].FileName);
                 string uzanti = Path.GetExtension(Request.Files[0].FileName);
-                string path = "~/Image/" + dosyaadi + uzanti;
-                Request.Files[0].SaveAs(Server.MapPath(path));
-                p.NewPath = "/Image/" + dosyaadi + uzanti;
+
+                if (!string.IsNullOrEmpty(dosyaadi))
+                {
+                    string path = "~/Image/" + dosyaadi + uzanti;
+                    Request.Files[0].SaveAs(Server.MapPath(path));
+                    p.NewPath = "/Image/" + dosyaadi + uzanti;
+                }
+                else
+                    p.NewPath = userimg.NewPath;
+                
             }
             p.NewStatus = true;
             Nm.NewUpdate(p);

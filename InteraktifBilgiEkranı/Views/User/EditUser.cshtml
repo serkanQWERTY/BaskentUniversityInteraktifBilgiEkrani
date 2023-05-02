@@ -22,10 +22,7 @@
                 @Html.TextBoxFor(x => x.UserSurname, new { @class = "form-control" })
             </div>
 
-            @*<div class="form-group mb-3">
-                @Html.Label("Kullanıcı Şifre")
-                @Html.TextBoxFor(x => x.UserPassword, new { @class = "form-control" })
-            </div>*@
+            @Html.HiddenFor(model => model.UserPassword)
 
             <div class="form-group mb-3">
                 @Html.Label("Kullanıcı Telefon")

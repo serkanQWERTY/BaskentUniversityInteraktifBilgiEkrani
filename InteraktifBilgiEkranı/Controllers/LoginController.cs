@@ -26,6 +26,7 @@ namespace InteraktifBilgiEkranı.Controllers
             var infos = c.Users.Where(x => x.UserMail == p.UserMail).SingleOrDefault();
             if (infos.UserMail == p.UserMail && infos.UserPassword == Crypto.Hash(p.UserPassword, "MD5"))
             {
+                //2li dogrulamaya gidecek
                 FormsAuthentication.SetAuthCookie(infos.UserMail, false);
                 Session["UserMail"] = infos.UserMail;
                 return RedirectToAction("Index", "About");
