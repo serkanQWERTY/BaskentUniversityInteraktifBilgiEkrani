@@ -173,18 +173,5 @@ namespace InteraktifBilgiEkranı.Controllers
             Um.UserUpdate(p);
             return RedirectToAction("Index", "About");
         }
-
-        [HttpGet]
-        public ActionResult ChangeMyPassword()
-        {
-            return View();
-        }
-
-
-        //[HttpPost]
-        //public ActionResult ChangeMyPassword(User p, string password)
-        //{
-      
-        //}
     }
 }

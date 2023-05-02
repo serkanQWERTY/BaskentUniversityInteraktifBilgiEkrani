@@ -2573,7 +2573,6 @@
     <Content Include="Views\ErrorPage\Page404.cshtml" />
     <Content Include="Views\ErrorPage\Page500.cshtml" />
     <Content Include="Views\User\UserProfile.cshtml" />
-    <Content Include="Views\User\ChangeMyPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
