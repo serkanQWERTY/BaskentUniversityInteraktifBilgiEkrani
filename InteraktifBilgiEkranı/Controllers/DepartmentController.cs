@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
@@ -14,10 +15,18 @@ namespace InteraktifBilgiEkranı.Controllers
     {
         DepartmentManager Dm = new DepartmentManager(new EfDepartmentDAL());
         FacultyManager Fm = new FacultyManager(new EfFacultyDAL());
+        UserManager Um = new UserManager(new EfUserDAL());
+        Context c = new Context();
+
         // GET: Department
         [Authorize(Roles="ADM")]//Sadece ADM bu sayfayı görüntüleyebilir.
         public ActionResult Index()
         {
+            string p = (string)Session["UserMail"];
+            int id = c.Users.Where(x => x.UserMail == p).Select(y => y.UserID).FirstOrDefault();
+            var userValues = Um.GetByID(id);
+            string path = userValues.UserPath;
+            TempData["Path"] = path;
             var departmentValues = Dm.GetList();
             return View(departmentValues);
         }

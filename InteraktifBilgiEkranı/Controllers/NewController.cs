@@ -27,6 +27,12 @@ namespace InteraktifBilgiEkranı.Controllers
         [Authorize(Roles="ADM,CAD,SEK,İDP")]
         public ActionResult Index()
         {
+            string p = (string)Session["UserMail"];
+            int id = db.Users.Where(x => x.UserMail == p).Select(y => y.UserID).FirstOrDefault();
+            var userValues = Um.GetByID(id);
+            string path = userValues.UserPath;
+            TempData["Path"] = path;
+
             var newValues = Nm.GetList();
             return View(newValues);
         }
@@ -105,7 +111,7 @@ namespace InteraktifBilgiEkranı.Controllers
         public ActionResult EditNew(New p)
         {
             Context c = new Context();
-            var userimg = c.News.FirstOrDefault(a => a.NewID == p.NewID);
+            var newimg = c.News.FirstOrDefault(a => a.NewID == p.NewID);
 
             if (Request.Files.Count > 0)
             {
@@ -119,7 +125,7 @@ namespace InteraktifBilgiEkranı.Controllers
                     p.NewPath = "/Image/" + dosyaadi + uzanti;
                 }
                 else
-                    p.NewPath = userimg.NewPath;
+                    p.NewPath = newimg.NewPath;
                 
             }
             p.NewStatus = true;

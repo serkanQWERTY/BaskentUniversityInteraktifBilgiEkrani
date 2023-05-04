@@ -23,6 +23,12 @@ namespace InteraktifBilgiEkranı.Controllers
         [Authorize(Roles = "ADM,CAD,SEK,İDP")]
         public ActionResult Index()
         {
+            string p = (string)Session["UserMail"];
+            int id = c.Users.Where(x => x.UserMail == p).Select(y => y.UserID).FirstOrDefault();
+            var userrValues = Um.GetByID(id);
+            string path = userrValues.UserPath;
+            TempData["Path"] = path;
+
             var userValues = Um.GetList();
             return View(userValues);
         }
@@ -124,13 +130,22 @@ namespace InteraktifBilgiEkranı.Controllers
         [HttpPost]
         public ActionResult EditUser(User p)
         {
+            Context c = new Context();
+            var userimg = c.Users.FirstOrDefault(a => a.UserID == p.UserID);
+
             if (Request.Files.Count > 0)
             {
                 string dosyaadi = Path.GetFileName(Request.Files[0].FileName);
                 string uzanti = Path.GetExtension(Request.Files[0].FileName);
-                string path = "~/ImageUser/" + dosyaadi + uzanti;
-                Request.Files[0].SaveAs(Server.MapPath(path));
-                p.UserPath = "/ImageUser/" + dosyaadi + uzanti;
+                if (!string.IsNullOrEmpty(dosyaadi))
+                {
+                    string path = "~/ImageUser/" + dosyaadi + uzanti;
+                    Request.Files[0].SaveAs(Server.MapPath(path));
+                    p.UserPath = "/ImageUser/" + dosyaadi + uzanti;
+                }
+                else
+                    p.UserPath = userimg.UserPath;
+      
             }
             p.UserStatus = true;
             Um.UserUpdate(p);
@@ -163,6 +178,10 @@ namespace InteraktifBilgiEkranı.Controllers
         {
             string p = (string)Session["UserMail"];
             int id = c.Users.Where(x => x.UserMail == p).Select(y => y.UserID).FirstOrDefault();
+            var userrValues = Um.GetByID(id);
+            string path = userrValues.UserPath;
+            TempData["Path"] = path;
+
             var userValues = Um.GetByID(id);
             return View(userValues);
         }

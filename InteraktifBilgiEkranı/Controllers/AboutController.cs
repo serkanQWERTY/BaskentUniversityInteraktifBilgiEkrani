@@ -12,7 +12,7 @@ namespace InteraktifBilgiEkranı.Controllers
 {
     public class AboutController : Controller
     {
-        UserManager um = new UserManager(new EfUserDAL());
+        UserManager Um = new UserManager(new EfUserDAL());
         Context c = new Context(); 
         // GET: About
         [Authorize]
@@ -21,11 +21,8 @@ namespace InteraktifBilgiEkranı.Controllers
         {
             string p = (string)Session["UserMail"];
             int id = c.Users.Where(x => x.UserMail == p).Select(y => y.UserID).FirstOrDefault();
-
-            var userValues = um.GetByID(id);
-
+            var userValues = Um.GetByID(id);
             string path = userValues.UserPath;
-
             TempData["Path"] = path;
             return View(userValues);
         }
