@@ -24,8 +24,8 @@
             </div>
 
             <div class="form-group mb-3">
-                @Html.Label("Tarih")
-                @Html.TextBoxFor(x => x.NewCreationDate, new { @class = "form-control" })
+                @Html.Label("Haber Yayım Tarih")
+                @Html.TextBoxFor(x => x.NewCreationDate, Model.NewCreationDate.ToString("dd.MM.yyyy"), new { @class = "form-control" })
             </div>
 
             <div class="form-group mb-3">

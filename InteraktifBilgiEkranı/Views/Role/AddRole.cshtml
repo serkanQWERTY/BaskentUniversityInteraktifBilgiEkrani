@@ -35,7 +35,7 @@
 
             <div class="form-group mb-3">
                 @Html.Label("Rol Yaratılış Tarihi")
-                @Html.TextBoxFor(x => x.RoleCreationDate, new { @class = "form-control" })
+                @Html.TextBoxFor(x => x.RoleCreationDate, new { @class = "form-control", @placeholder = "gg.aa.yyyy" })
             </div>
             <button class="btn btn-primary">Kaydet</button>
             <a href="/Role/Index" class="btn btn-primary m-md-2">Geri Git</a>

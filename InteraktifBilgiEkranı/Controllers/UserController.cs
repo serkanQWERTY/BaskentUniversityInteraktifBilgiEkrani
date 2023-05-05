@@ -34,6 +34,7 @@ namespace InteraktifBilgiEkranı.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult AddUser()
         {
             List<SelectListItem> valueRole = (from x in Rm.GetList()
@@ -77,7 +78,6 @@ namespace InteraktifBilgiEkranı.Controllers
                 Request.Files[0].SaveAs(Server.MapPath(path));
                 p.UserPath = "/ImageUser/" + dosyaadi + uzanti;
             }
-            p.UserCreationDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             p.UserPassword = Crypto.Hash(p.UserPassword, "MD5");
 
             switch (q)
@@ -97,6 +97,7 @@ namespace InteraktifBilgiEkranı.Controllers
 
 
         [HttpGet]
+        [Authorize]
         public ActionResult EditUser(int id)
         {
             List<SelectListItem> valueRole = (from x in Rm.GetList()
@@ -174,6 +175,7 @@ namespace InteraktifBilgiEkranı.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult UserProfile()
         {
             string p = (string)Session["UserMail"];
@@ -191,6 +193,57 @@ namespace InteraktifBilgiEkranı.Controllers
         {
             Um.UserUpdate(p);
             return RedirectToAction("Index", "About");
+        }
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult ChangeMyPassword()
+        {
+            string q = (string)Session["UserMail"];
+            int id = c.Users.Where(x => x.UserMail == q).Select(y => y.UserID).FirstOrDefault();
+            var userValues = Um.GetByID(id);
+            string path = userValues.UserPath;
+            TempData["Path"] = path;
+
+            var userrValues = Um.GetByID(id);
+            return View(userrValues);
+        }
+
+        [HttpPost]
+        public ActionResult ChangeMyPassword(User p)
+        {
+            string q = (string)Session["UserMail"];
+            var infos = c.Users.Where(x => x.UserMail == q).Select(y => y.UserPassword).FirstOrDefault();
+            if (infos == Crypto.Hash(p.UserPassword, "MD5"))
+            {
+                return RedirectToAction("ChangeMyPasswordTwo", "User");
+            }
+            else
+            {
+                ViewBag.mesaj = "HATALI GİRİŞ";
+                return RedirectToAction("Index", "About");
+            }
+        }
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult ChangeMyPasswordTwo()
+        {
+            string q = (string)Session["UserMail"];
+            int id = c.Users.Where(x => x.UserMail == q).Select(y => y.UserID).FirstOrDefault();
+            var userValues = Um.GetByID(id);
+            string path = userValues.UserPath;
+            TempData["Path"] = path;
+            return View(userValues);
+        }
+
+        [HttpPost]
+        public ActionResult ChangeMyPasswordTwo(User p)
+        {
+            var infopw = p.UserPassword;
+            p.UserPassword = Crypto.Hash(infopw, "MD5");
+            Um.UserUpdate(p);
+            return RedirectToAction("Index","About");
         }
     }
 }

@@ -13,6 +13,7 @@ namespace InteraktifBilgiEkranı.Controllers
         UserManager Um = new UserManager(new EfUserDAL());
         NewManager Nm = new NewManager(new EfNewDAL());
         // GET: UserGallery
+        [HttpGet]
         [Authorize]
         public ActionResult Index()
         {
@@ -21,6 +22,7 @@ namespace InteraktifBilgiEkranı.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult NewByUser(int id)
         {
             var newValues = Nm.GetListByUserID(id);

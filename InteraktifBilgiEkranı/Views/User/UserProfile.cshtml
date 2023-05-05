@@ -37,9 +37,11 @@
             @Html.HiddenFor(model => model.Permission)
             @Html.HiddenFor(model => model.DepartmentID)
             @Html.HiddenFor(model => model.FacultyID)
+            @Html.HiddenFor(model => model.UserPath)
 
 
             <button class="btn btn-primary">Kaydet</button>
+            <a href="/User/ChangeMyPassword" class="btn btn-primary m-md-2">Şifre Değişikliği</a>
         </div>
     </div>
 }

@@ -32,6 +32,7 @@ namespace InteraktifBilgiEkranı.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult AddDepartment()
         {
             List<SelectListItem> valueFaculty = (from x in Fm.GetList()
@@ -46,14 +47,15 @@ namespace InteraktifBilgiEkranı.Controllers
         }
 
         [HttpPost]
+
         public ActionResult AddDepartment(Department p)
         {
-            p.DepartmentCreationDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             Dm.DepartmentAdd(p);
             return RedirectToAction("Index");
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult EditDepartment(int id)
         {
             List<SelectListItem> valueFaculty = (from x in Fm.GetList()
@@ -71,6 +73,7 @@ namespace InteraktifBilgiEkranı.Controllers
         [HttpPost]
         public ActionResult EditDepartment(Department p)
         {
+            p.DepartmentStatus = true;
             Dm.DepartmentUpdate(p);
             return RedirectToAction("Index");
         }

@@ -22,9 +22,9 @@
             <tr>
                 @*<th>#</th>*@
                 <th>İsim</th>
-                <th>Tarih</th>
                 <th>İçerik</th>
                 <th>Durum</th>
+                <th>Tarih</th>
                 <th>Açıklama</th>
                 <th>İçerik Üreticisi</th>
                 <th>Ekran</th>
@@ -34,56 +34,56 @@
             </tr>
             @foreach (var item in Model)
             {
-                <tr>
-                    @*<td>@item.NewID</td>*@
-                    <td>@item.NewName</td>
-                    <td>
-                        <div class="time-label">
-                            <span>@(((DateTime)item.NewCreationDate).ToString("dd-MM-yyyy"))</span>
-                        </div>
-                    </td>
-                    <td>
-                        <span class="avatar avatar-md mt-2">
-                            <img src="@item.NewPath" alt="..." class="avatar-img rounded-top">
-                        </span>
-                    </td>
-                    <td>
-                        @switch (item.NewStatus)
-                        {
-                            case true:
-                                badgeStatusColor = "badge badge-success";
-                                buttonStatusColor = "btn btn-warning";
-                                newStatus = "Aktif Durum";
-                                break;
-                            case false:
-                                badgeStatusColor = "badge badge-warning";
-                                buttonStatusColor = "btn btn-success";
-                                newStatus = "Pasif Durum";
-                                break;
-                        }
-                        <span class="@badgeStatusColor">@newStatus</span>
-                    </td>
-                    <td>@item.NewDescription</td>
-                    <td>@item.User.Role.RoleName  @item.User.UserName @item.User.UserSurname</td>
-                    <td>@item.Tv.TvDescription</td>
-                    <td><a href="/New/EditNew/@item.NewID" class="btn btn-info">Güncelle</a></td>
-                    <td>
-                        <a class="@buttonStatusColor" href="/New/ChangeStatusNew/@item.NewID">
+        <tr>
+            @*<td>@item.NewID</td>*@
+            <td>@item.NewName</td>
+            <td>
+                <span class="avatar avatar-md mt-2">
+                    <img src="@item.NewPath" alt="..." class="avatar-img rounded-top">
+                </span>
+            </td>
+            <td>
+                @switch (item.NewStatus)
+                {
+                    case true:
+                        badgeStatusColor = "badge badge-success";
+                        buttonStatusColor = "btn btn-warning";
+                        newStatus = "Aktif Durum";
+                        break;
+                    case false:
+                        badgeStatusColor = "badge badge-warning";
+                        buttonStatusColor = "btn btn-success";
+                        newStatus = "Pasif Durum";
+                        break;
+                }
+                <span class="@badgeStatusColor">@newStatus</span>
+            </td>
+            <td>
+                <div class="time-label">
+                    <span>@(((DateTime)item.NewCreationDate).ToString("dd.MM.yyyy"))</span>
+                </div>
+            </td>
+            <td>@item.NewDescription</td>
+            <td>@item.User.Role.RoleName  @item.User.UserName @item.User.UserSurname</td>
+            <td>@item.Tv.TvDescription</td>
+            <td><a href="/New/EditNew/@item.NewID" class="btn btn-info">Güncelle</a></td>
+            <td>
+                <a class="@buttonStatusColor" href="/New/ChangeStatusNew/@item.NewID">
 
-                            @if (item.NewStatus == true)
-                            {
-                                checkStatus = "Pasif Yap";
-                            }
-                            else
-                            {
-                                checkStatus = "Aktif Yap";
-                            }
-                            @checkStatus
+                    @if (item.NewStatus == true)
+                    {
+                        checkStatus = "Pasif Yap";
+                    }
+                    else
+                    {
+                        checkStatus = "Aktif Yap";
+                    }
+                    @checkStatus
 
-                        </a>
-                    </td>
-                    <td><a href="/New/DeleteNew/@item.NewID" class="btn btn-danger">Sil</a></td>
-                </tr>
+                </a>
+            </td>
+            <td><a href="/New/DeleteNew/@item.NewID" class="btn btn-danger">Sil</a></td>
+        </tr>
             }
         </table>
     </div>

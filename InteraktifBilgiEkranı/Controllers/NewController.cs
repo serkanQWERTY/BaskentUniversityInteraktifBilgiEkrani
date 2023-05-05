@@ -38,6 +38,7 @@ namespace InteraktifBilgiEkranı.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult AddNew()
         {
 
@@ -75,8 +76,6 @@ namespace InteraktifBilgiEkranı.Controllers
                 Request.Files[0].SaveAs(Server.MapPath(path));
                 p.NewPath = "/Image/" + dosyaadi + uzanti;
             }
-
-            p.NewCreationDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             p.UserID = id;
 
             Nm.NewAdd(p);
@@ -84,6 +83,7 @@ namespace InteraktifBilgiEkranı.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult EditNew(int id)
         {
             List<SelectListItem> valueTv = (from x in Tm.GetList()

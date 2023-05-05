@@ -31,6 +31,7 @@ namespace InteraktifBilgiEkranı.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult AddTv()
         {
             List<SelectListItem> valueDepartment = (from x in Dm.GetList()
@@ -47,13 +48,13 @@ namespace InteraktifBilgiEkranı.Controllers
         [HttpPost]
         public ActionResult AddTv(Tv p)
         {
-            p.TvCreationDate= DateTime.Parse(DateTime.Now.ToShortDateString());
             Tm.TvAdd(p);
             return RedirectToAction("Index");
 
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult EditTv(int id)
         {
             List<SelectListItem> valueDepartment = (from x in Dm.GetList()
@@ -70,6 +71,7 @@ namespace InteraktifBilgiEkranı.Controllers
         [HttpPost]
         public ActionResult EditTv(Tv p)
         {
+            p.TvStatus = true;
             Tm.TvUpdate(p);
             return RedirectToAction("Index");
         }

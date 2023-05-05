@@ -30,7 +30,7 @@
 
             <div class="form-group mb-3">
                 @Html.Label("Fakülte Kuruluş Tarihi")
-                @Html.TextBoxFor(x => x.FacultyCreationDate, new { @class = "form-control" })
+                @Html.TextBoxFor(x => x.FacultyCreationDate, new { @class = "form-control", @placeholder = "gg.aa.yyyy" })
             </div>
             <button class="btn btn-primary">Kaydet</button>
             <a href="/Faculty/Index" class="btn btn-primary m-md-2">Geri Git</a>

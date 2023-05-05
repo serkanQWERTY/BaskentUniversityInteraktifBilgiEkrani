@@ -31,6 +31,7 @@ namespace InteraktifBilgiEkranı.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult AddRole()
         {
             return View();
@@ -59,6 +60,7 @@ namespace InteraktifBilgiEkranı.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult EditRole(int id)
         {
             var roleValues = Rm.GetByID(id);
@@ -68,6 +70,7 @@ namespace InteraktifBilgiEkranı.Controllers
         [HttpPost]
         public ActionResult EditRole(Role p)
         {
+            p.RoleStatus = true;
             Rm.RoleUpdate(p);
             return RedirectToAction("Index");
         }

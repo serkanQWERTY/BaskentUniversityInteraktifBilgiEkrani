@@ -32,6 +32,7 @@ namespace InteraktifBilgiEkranı.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult AddFaculty()
         {
             return View();
@@ -58,6 +59,7 @@ namespace InteraktifBilgiEkranı.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult EditFaculty(int id)
         {
             var facultyValues = Fm.GetByID(id);
@@ -67,6 +69,7 @@ namespace InteraktifBilgiEkranı.Controllers
         [HttpPost]
         public ActionResult EditFaculty(Faculty p)
         {
+            p.FacultyStatus = true;
             Fm.FacultyUpdate(p);
             return RedirectToAction("Index");
         }
