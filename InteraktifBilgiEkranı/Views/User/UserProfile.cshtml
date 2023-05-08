@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-@using (Html.BeginForm("UserProfile", "User", FormMethod.Post))
+@using (Html.BeginForm("UserProfile", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="col-md-12" style="width: 450px">
         <div class="card-body">
@@ -37,7 +37,11 @@
             @Html.HiddenFor(model => model.Permission)
             @Html.HiddenFor(model => model.DepartmentID)
             @Html.HiddenFor(model => model.FacultyID)
-            @Html.HiddenFor(model => model.UserPath)
+
+        <div class="form-group mb-3">
+            @Html.Label("Fotoğraf")
+            <input type="file" name="UserPath" class="form-control" />
+        </div>
 
 
             <button class="btn btn-primary">Kaydet</button>

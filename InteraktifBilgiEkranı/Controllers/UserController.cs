@@ -191,6 +191,23 @@ namespace InteraktifBilgiEkranı.Controllers
         [HttpPost]
         public ActionResult UserProfile(User p)
         {
+            Context c = new Context();
+            var userimg = c.Users.FirstOrDefault(a => a.UserID == p.UserID);
+
+            if (Request.Files.Count > 0)
+            {
+                string dosyaadi = Path.GetFileName(Request.Files[0].FileName);
+                string uzanti = Path.GetExtension(Request.Files[0].FileName);
+                if (!string.IsNullOrEmpty(dosyaadi))
+                {
+                    string path = "~/ImageUser/" + dosyaadi + uzanti;
+                    Request.Files[0].SaveAs(Server.MapPath(path));
+                    p.UserPath = "/ImageUser/" + dosyaadi + uzanti;
+                }
+                else
+                    p.UserPath = userimg.UserPath;
+            }
+            p.UserStatus = true;
             Um.UserUpdate(p);
             return RedirectToAction("Index", "About");
         }
