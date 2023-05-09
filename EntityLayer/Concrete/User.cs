@@ -25,6 +25,7 @@ namespace EntityLayer.Concrete
         public string UserPath { get; set; }
         public bool UserStatus { get; set; }
         public DateTime UserCreationDate { get; set; }
+        public string VerificationCode{ get; set; }
         
 
 

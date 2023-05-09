@@ -110,6 +110,10 @@
     <Compile Include="Migrations\202304180015361_restorever.designer.cs">
       <DependentUpon>202304180015361_restorever.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305091747539_xde.cs" />
+    <Compile Include="Migrations\202305091747539_xde.designer.cs">
+      <DependentUpon>202305091747539_xde.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -156,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304180015361_restorever.resx">
       <DependentUpon>202304180015361_restorever.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305091747539_xde.resx">
+      <DependentUpon>202305091747539_xde.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

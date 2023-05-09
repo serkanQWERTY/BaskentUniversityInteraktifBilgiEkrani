@@ -2575,6 +2575,7 @@
     <Content Include="Views\User\UserProfile.cshtml" />
     <Content Include="Views\User\ChangeMyPassword.cshtml" />
     <Content Include="Views\User\ChangeMyPasswordTwo.cshtml" />
+    <Content Include="Views\Login\Verification.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
