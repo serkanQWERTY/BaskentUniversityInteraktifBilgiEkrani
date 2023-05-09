@@ -16,7 +16,7 @@ namespace InteraktifBilgiEkranı.Controllers
         DepartmentManager Dm = new DepartmentManager(new EfDepartmentDAL());
         UserManager Um = new UserManager(new EfUserDAL());
         Context c = new Context();
-        // GET: Department
+        [HttpGet]
         [Authorize(Roles="ADM,TEK")]
         public ActionResult Index()
         {
@@ -31,7 +31,7 @@ namespace InteraktifBilgiEkranı.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "ADM,TEK")]
         public ActionResult AddTv()
         {
             List<SelectListItem> valueDepartment = (from x in Dm.GetList()
@@ -54,7 +54,7 @@ namespace InteraktifBilgiEkranı.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "ADM,TEK")]
         public ActionResult EditTv(int id)
         {
             List<SelectListItem> valueDepartment = (from x in Dm.GetList()

@@ -23,7 +23,7 @@ namespace InteraktifBilgiEkranı.Controllers
         UserManager Um = new UserManager(new EfUserDAL());
         private Context db = new Context();
 
-        // GET: Sliders
+        [HttpGet]
         [Authorize(Roles="ADM,CAD,SEK,İDP")]
         public ActionResult Index()
         {
@@ -38,7 +38,7 @@ namespace InteraktifBilgiEkranı.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "ADM,CAD,SEK,İDP")]
         public ActionResult AddNew()
         {
 
@@ -83,7 +83,7 @@ namespace InteraktifBilgiEkranı.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "ADM,CAD,SEK,İDP")]
         public ActionResult EditNew(int id)
         {
             List<SelectListItem> valueTv = (from x in Tm.GetList()

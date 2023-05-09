@@ -19,7 +19,8 @@ namespace InteraktifBilgiEkranı.Controllers
         DepartmentManager Dm = new DepartmentManager(new EfDepartmentDAL());
         FacultyManager Fm = new FacultyManager(new EfFacultyDAL());
         private Context c = new Context();
-        // GET: User
+
+        [HttpGet]
         [Authorize(Roles = "ADM,CAD,SEK,İDP")]
         public ActionResult Index()
         {
@@ -34,7 +35,7 @@ namespace InteraktifBilgiEkranı.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "ADM,CAD,SEK,İDP")]
         public ActionResult AddUser()
         {
             List<SelectListItem> valueRole = (from x in Rm.GetList()
@@ -97,7 +98,7 @@ namespace InteraktifBilgiEkranı.Controllers
 
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "ADM,CAD,SEK,İDP")]
         public ActionResult EditUser(int id)
         {
             List<SelectListItem> valueRole = (from x in Rm.GetList()

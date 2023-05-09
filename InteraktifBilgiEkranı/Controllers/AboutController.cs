@@ -14,7 +14,7 @@ namespace InteraktifBilgiEkranı.Controllers
     {
         UserManager Um = new UserManager(new EfUserDAL());
         Context c = new Context(); 
-        // GET: About
+
         [Authorize]
         [HttpGet]
         public ActionResult Index()
@@ -26,32 +26,5 @@ namespace InteraktifBilgiEkranı.Controllers
             TempData["Path"] = path;
             return View(userValues);
         }
-        
-        //public ActionResult Contact()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public ActionResult Contact(string name = null, string email = null, string subject = null, string message = null)
-        //{
-        //    if (name != null && email != null)
-        //    {
-        //        WebMail.SmtpServer = "smtp.gmail.com";
-        //        WebMail.EnableSsl = true;
-        //        WebMail.UserName = "baskentbilgiekrani@gmail.com";
-        //        WebMail.Password = "ntxrkkvzavktxqqe";
-        //        WebMail.SmtpPort = 587;
-        //        WebMail.Send("serkan.isde99@gmail.com", subject, email + "<br/>" + message);
-        //        ViewBag.uyarı = "Mesajınız Başarıyla Gönderilmiştir!";
-        //    }
-        //    else
-        //    {
-        //        ViewBag.uyarı = "Hata Oluştu. Tekrar Dene.";
-        //    }
-        //    return View();
-        //}
-
-
     }
 }

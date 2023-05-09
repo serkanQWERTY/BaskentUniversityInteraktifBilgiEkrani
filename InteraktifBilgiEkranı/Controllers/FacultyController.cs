@@ -18,6 +18,7 @@ namespace InteraktifBilgiEkranı.Controllers
         UserManager Um = new UserManager(new EfUserDAL());
         Context c = new Context();
 
+        [HttpGet]
         [Authorize(Roles="ADM")]
         public ActionResult Index()
         {
@@ -32,7 +33,7 @@ namespace InteraktifBilgiEkranı.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "ADM")]
         public ActionResult AddFaculty()
         {
             return View();
@@ -59,7 +60,7 @@ namespace InteraktifBilgiEkranı.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "ADM")]
         public ActionResult EditFaculty(int id)
         {
             var facultyValues = Fm.GetByID(id);

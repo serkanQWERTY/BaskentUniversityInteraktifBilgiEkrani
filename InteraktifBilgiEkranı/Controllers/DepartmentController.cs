@@ -18,7 +18,7 @@ namespace InteraktifBilgiEkranı.Controllers
         UserManager Um = new UserManager(new EfUserDAL());
         Context c = new Context();
 
-        // GET: Department
+        [HttpGet]
         [Authorize(Roles="ADM")]//Sadece ADM bu sayfayı görüntüleyebilir.
         public ActionResult Index()
         {
@@ -32,7 +32,7 @@ namespace InteraktifBilgiEkranı.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "ADM")]
         public ActionResult AddDepartment()
         {
             List<SelectListItem> valueFaculty = (from x in Fm.GetList()
@@ -55,7 +55,7 @@ namespace InteraktifBilgiEkranı.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "ADM")]
         public ActionResult EditDepartment(int id)
         {
             List<SelectListItem> valueFaculty = (from x in Fm.GetList()
