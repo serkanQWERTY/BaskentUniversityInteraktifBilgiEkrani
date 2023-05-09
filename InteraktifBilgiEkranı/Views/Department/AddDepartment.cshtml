@@ -32,13 +32,12 @@
 
             <div class="form-group mb-3">
                 @Html.Label("Bölüm Kuruluş Tarihi")
-                @Html.TextBoxFor(x => x.DepartmentCreationDate, new { @class = "form-control" , @placeholder = "gg.aa.yyyy" })
+                @Html.TextBoxFor(x => x.DepartmentCreationDate, new { @class = "form-control", @placeholder = "gg.aa.yyyy" })
             </div>
 
             <div class="form-group mb-3">
                 @Html.Label("Bağlı Olduğu Fakülte")
-                @Html.DropDownListFor(x => x.FacultyID, (List<SelectListItem>)ViewBag.vlf, new
-                { @class = "form-control" })
+                @Html.DropDownListFor(x => x.FacultyID, (List<SelectListItem>)ViewBag.vlf, new { @class = "form-control" })
             </div>
             <button class="btn btn-primary">Kaydet</button>
             <a href="/Department/Index" class="btn btn-primary m-md-2">Geri Git</a>
