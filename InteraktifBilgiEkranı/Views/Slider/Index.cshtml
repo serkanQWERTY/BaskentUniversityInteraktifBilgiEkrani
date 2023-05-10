@@ -11,49 +11,44 @@
     <title>İNTERAKTİF BİLGİ EKRANI</title>
     <style>
         .container {
-    margin: 10px 0 10px 0;
-}
+            margin: 10px 0 10px 0;
+        }
 
-.slider * {
-    transition: all 0.4s ease 0s;
-    user-select: none;
-}
+        .slider * {
+            transition: all 0.4s ease 0s;
+            user-select: none;
+        }
 
-.slider {
-    background: #ddd;
-    margin: auto;
-    width: 100%;
-    height: 47vw;
-    overflow: hidden;
-    position: relative;
-}
+        .slider {
+            background: #ddd;
+            margin: auto;
+            width: 100%;
+            height: 47vw;
+            overflow: hidden;
+            position: relative;
+        }
 
-    .slider img {
-        width: 100%;
-        height: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        opacity: 0;
-    }
-
-@*@media only screen and (max-width: 1100px) {
-    .slider {
-        width: 100%;
-        height: 40vw;
-    }*@
+        .slider img {
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                top: 0;
+                left: 0;
+                opacity: 0;
+            }
     </style>
-</head>
-<body>
     @*<header>
         <center><h1 style="font-family: verdana;">İNTERAKTİF BİLGİ EKRANINA HOŞGELDİNİZ!</h1></center>
     </header>*@
+</head>
+<body>
     <div class="container">
         <div class="slider">
             <div class="imgholder">
+
                 @foreach (var item in Model)
                 {
-                    if (item.NewStatus == true/* && item.Tv.TvID==3*/)
+                    if (item.NewStatus == true)
                     {
                         <img src="@item.NewPath" alt="">
                     }
@@ -70,7 +65,7 @@
 
         if (document.querySelectorAll(".slider").length == 1) {
 
-            const timerlength = 3000  
+            const timerlength = 5000  
             const slider = document.querySelector(".slider");
             const sliderImg = slider.querySelectorAll("img");
             const sliderPreviusButton = slider.querySelector(".left")
@@ -146,12 +141,10 @@
 
             function slidePrevius() {
                 if (currentSlider > 0) {
-
                     sliderHide();
                     currentSlider--;
                     sliderShow();
                 } else {
-
                     sliderHide();
                     currentSlider = sliderCount;
                     sliderShow();
@@ -159,7 +152,6 @@
             }
 
             function sliderJump(number) {
-
                 sliderHide();
                 currentSlider = number;
                 sliderShow();
@@ -171,12 +163,9 @@
 
             
             if (sliderCount !== -1) {
-
                 sliderPreviusButton.addEventListener("click", slidePrevius);
                 sliderNextButton.addEventListener("click", slidNext);
                 sliderShow()
-
-                
                 window.setTimeout(slideTimer, timerlength);
             }
         }
