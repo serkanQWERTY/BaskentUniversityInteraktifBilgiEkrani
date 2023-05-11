@@ -1999,6 +1999,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="light\myCss\cbpBGSlideshow.js" />
+    <Content Include="light\myCss\cbpBGSlideshow.min.js" />
+    <Content Include="light\myCss\component.css" />
+    <Content Include="light\myCss\default.css" />
+    <Content Include="light\myCss\jquery.imagesloaded.min.js" />
+    <Content Include="light\myCss\modernizr.custom.js" />
     <Content Include="light\assets\avatars\05481087-9ab1-485b-bea4-6bf0ab213217.jpg" />
     <Content Include="light\assets\avatars\face-1.jpg" />
     <Content Include="light\assets\avatars\face-2.jpg" />
