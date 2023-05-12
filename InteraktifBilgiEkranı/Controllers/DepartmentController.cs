@@ -27,6 +27,7 @@ namespace InteraktifBilgiEkranı.Controllers
             var userValues = Um.GetByID(id);
             string path = userValues.UserPath;
             TempData["Path"] = path;
+
             var departmentValues = Dm.GetList();
             return View(departmentValues);
         }
@@ -35,6 +36,11 @@ namespace InteraktifBilgiEkranı.Controllers
         [Authorize(Roles = "ADM")]
         public ActionResult AddDepartment()
         {
+            string p = (string)Session["UserMail"];
+            int id = c.Users.Where(x => x.UserMail == p).Select(y => y.UserID).FirstOrDefault();
+            var userValues = Um.GetByID(id);
+            string path = userValues.UserPath;
+            TempData["Path"] = path;
             List<SelectListItem> valueFaculty = (from x in Fm.GetList()
                                                  select new SelectListItem
                                                  {
@@ -58,6 +64,11 @@ namespace InteraktifBilgiEkranı.Controllers
         [Authorize(Roles = "ADM")]
         public ActionResult EditDepartment(int id)
         {
+            string p = (string)Session["UserMail"];
+            int idd = c.Users.Where(x => x.UserMail == p).Select(y => y.UserID).FirstOrDefault();
+            var userValues = Um.GetByID(idd);
+            string path = userValues.UserPath;
+            TempData["Path"] = path;
             List<SelectListItem> valueFaculty = (from x in Fm.GetList()
                                                  select new SelectListItem
                                                  {

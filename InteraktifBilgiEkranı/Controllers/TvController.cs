@@ -34,6 +34,12 @@ namespace InteraktifBilgiEkranı.Controllers
         [Authorize(Roles = "ADM,TEK")]
         public ActionResult AddTv()
         {
+            string p = (string)Session["UserMail"];
+            int id = c.Users.Where(x => x.UserMail == p).Select(y => y.UserID).FirstOrDefault();
+            var userValues = Um.GetByID(id);
+            string path = userValues.UserPath;
+            TempData["Path"] = path;
+
             List<SelectListItem> valueDepartment = (from x in Dm.GetList()
                                                  select new SelectListItem
                                                  {
@@ -57,6 +63,12 @@ namespace InteraktifBilgiEkranı.Controllers
         [Authorize(Roles = "ADM,TEK")]
         public ActionResult EditTv(int id)
         {
+            string p = (string)Session["UserMail"];
+            int idd = c.Users.Where(x => x.UserMail == p).Select(y => y.UserID).FirstOrDefault();
+            var userValues = Um.GetByID(idd);
+            string path = userValues.UserPath;
+            TempData["Path"] = path;
+
             List<SelectListItem> valueDepartment = (from x in Dm.GetList()
                                                  select new SelectListItem
                                                  {

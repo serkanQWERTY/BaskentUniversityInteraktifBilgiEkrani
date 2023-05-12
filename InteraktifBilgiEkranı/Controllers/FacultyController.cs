@@ -36,6 +36,11 @@ namespace InteraktifBilgiEkranı.Controllers
         [Authorize(Roles = "ADM")]
         public ActionResult AddFaculty()
         {
+            string p = (string)Session["UserMail"];
+            int id = c.Users.Where(x => x.UserMail == p).Select(y => y.UserID).FirstOrDefault();
+            var userValues = Um.GetByID(id);
+            string path = userValues.UserPath;
+            TempData["Path"] = path;
             return View();
         }
 
@@ -63,6 +68,11 @@ namespace InteraktifBilgiEkranı.Controllers
         [Authorize(Roles = "ADM")]
         public ActionResult EditFaculty(int id)
         {
+            string p = (string)Session["UserMail"];
+            int idd = c.Users.Where(x => x.UserMail == p).Select(y => y.UserID).FirstOrDefault();
+            var userValues = Um.GetByID(idd);
+            string path = userValues.UserPath;
+            TempData["Path"] = path;
             var facultyValues = Fm.GetByID(id);
             return View(facultyValues);
         }

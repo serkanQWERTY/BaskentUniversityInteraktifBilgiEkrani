@@ -41,6 +41,11 @@ namespace InteraktifBilgiEkranı.Controllers
         [Authorize(Roles = "ADM,CAD,SEK,İDP")]
         public ActionResult AddNew()
         {
+            string p = (string)Session["UserMail"];
+            int id = db.Users.Where(x => x.UserMail == p).Select(y => y.UserID).FirstOrDefault();
+            var userValues = Um.GetByID(id);
+            string path = userValues.UserPath;
+            TempData["Path"] = path;
 
             List<SelectListItem> valueTv = (from x in Tm.GetList()
                                             select new SelectListItem
@@ -86,6 +91,11 @@ namespace InteraktifBilgiEkranı.Controllers
         [Authorize(Roles = "ADM,CAD,SEK,İDP")]
         public ActionResult EditNew(int id)
         {
+            string p = (string)Session["UserMail"];
+            int idd = db.Users.Where(x => x.UserMail == p).Select(y => y.UserID).FirstOrDefault();
+            var userValues = Um.GetByID(idd);
+            string path = userValues.UserPath;
+            TempData["Path"] = path;
             List<SelectListItem> valueTv = (from x in Tm.GetList()
                                             select new SelectListItem
                                             {

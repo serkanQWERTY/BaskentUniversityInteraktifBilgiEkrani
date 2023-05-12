@@ -24,12 +24,28 @@
                 {
                     if (item.NewStatus == true && item.Tv.TvID == 9)
                     {
-                        <li>
-                            <img src="@item.NewPath" alt="" />
-                            <div class="flex-caption">
-                                <h3>@item.NewDescription</h3>
-                            </div>
-                        </li>
+                        var result = item.NewPath.Substring(item.NewPath.Length - 3);
+                        if (result == "mp4")
+                        {
+                            <li>
+                                <video controls autoplay="autoplay">
+                                    <source src="@item.NewPath" type="video/mp4">
+                                </video>
+                                <div class="flex-caption">
+                                    <h3>@item.NewDescription</h3>
+                                </div>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <img src="@item.NewPath" alt="" />
+                                <div class="flex-caption">
+                                    <h3>@item.NewDescription</h3>
+                                </div>
+                            </li>
+                        }
+
                     }
                 }
             </ul>
