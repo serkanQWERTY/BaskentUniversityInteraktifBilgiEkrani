@@ -111,7 +111,8 @@ var cbpBGSlideshow = (function() {
 		slideshowtime = setTimeout( function() {
 			navigate( 'next' );
 			startSlideshow();
-		}, 6000 );
+		}, 6000 
+			);
 
 	}
 
