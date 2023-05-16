@@ -24,28 +24,12 @@
                 {
                     if (item.NewStatus == true && item.Tv.TvID == 9)
                     {
-                        var result = item.NewPath.Substring(item.NewPath.Length - 3);
-                        if (result == "mp4")
-                        {
-                            <li>
-                                <video controls autoplay="autoplay">
-                                    <source src="@item.NewPath" type="video/mp4">
-                                </video>
-                                <div class="flex-caption">
-                                    <h3>@item.NewDescription</h3>
-                                </div>
-                            </li>
-                        }
-                        else
-                        {
-                            <li>
-                                <img src="@item.NewPath" alt="" />
-                                <div class="flex-caption">
-                                    <h3>@item.NewDescription</h3>
-                                </div>
-                            </li>
-                        }
-
+                        <li>
+                            <img src="@item.NewPath" alt="" />
+                            <div class="flex-caption">
+                                <h3>@item.NewDescription</h3>
+                            </div>
+                        </li>
                     }
                 }
             </ul>
@@ -62,3 +46,67 @@
     </script>
 </body>
 </html>
+@*@using EntityLayer.Concrete
+    @model List<New>
+    @{
+        Layout = null;
+    }
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>İnteraktif Bilgi Ekranı</title>
+        <link rel="shortcut icon" href="../favicon.ico">
+        <link href="~/light/myCss/default.css" rel="stylesheet" />
+        <link href="~/light/myCss/component.css" rel="stylesheet" />
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="main">
+                <ul id="cbp-bislideshow" class="cbp-bislideshow">
+                    @foreach (var item in Model)
+                    {
+                        if (item.NewStatus == true && item.Tv.TvID == 9)
+                        {
+                            var result = item.NewPath.Substring(item.NewPath.Length - 3);
+                            if (result == "mp4")
+                            {
+                                <li>
+                                    <video controls autoplay="autoplay">
+                                        <source src="@item.NewPath" type="video/mp4">
+                                    </video>
+                                    <div class="flex-caption">
+                                        <h3>@item.NewDescription</h3>
+                                    </div>
+                                </li>
+                            }
+                            else
+                            {
+                                <li>
+                                    <img src="@item.NewPath" alt="" />
+                                    <div class="flex-caption">
+                                        <h3>@item.NewDescription</h3>
+                                    </div>
+                                </li>
+                            }
+
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="~/light/myCss/jquery.imagesloaded.min.js"></script>
+        <script src="~/light/myCss/modernizr.custom.js"></script>
+        <script src="~/light/myCss/cbpBGSlideshow.js"></script>
+        <script>
+            $(function () {
+                cbpBGSlideshow.init();
+            });
+        </script>
+    </body>
+    </html>*@
