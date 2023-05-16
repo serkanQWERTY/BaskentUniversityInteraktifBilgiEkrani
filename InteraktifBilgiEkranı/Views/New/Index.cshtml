@@ -25,7 +25,11 @@
                 <th>İçerik</th>
                 <th>Durum</th>
                 <th>Tarih</th>
-                <th>Açıklama</th>
+                <th>Açıklama Sol Alt</th>
+                <th>Açıklama Sol Üst</th>
+                <th>Açıklama Sağ Üst</th>
+                <th>Açıklama Sağ Alt</th>
+                <th>Açıklama Orta</th>
                 <th>İçerik Üreticisi</th>
                 <th>Ekran</th>
                 <th>Güncelle</th>
@@ -64,6 +68,10 @@
                 </div>
             </td>
             <td>@item.NewDescription</td>
+            <td>@item.NewDescription1</td>
+            <td>@item.NewDescription2</td>
+            <td>@item.NewDescription3</td>
+            <td>@item.NewDescription4</td>
             <td>@item.User.Role.RoleName  @item.User.UserName @item.User.UserSurname</td>
             <td>@item.Tv.TvDescription</td>
             <td><a href="/New/EditNew/@item.NewID" class="btn btn-info">Güncelle</a></td>

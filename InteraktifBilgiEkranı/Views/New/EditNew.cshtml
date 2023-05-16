@@ -29,9 +29,26 @@
             </div>
 
             <div class="form-group mb-3">
-                @Html.Label("Haber Açıklaması")
+                @Html.Label("Haber Açıklaması Sol Alt")
                 @Html.TextBoxFor(x => x.NewDescription, new { @class = "form-control" })
             </div>
+            <div class="form-group mb-3">
+                @Html.Label("Haber Açıklaması Sol Üst")
+                @Html.TextBoxFor(x => x.NewDescription1, new { @class = "form-control" })
+            </div>
+            <div class="form-group mb-3">
+                @Html.Label("Haber Açıklaması Sağ Üst")
+                @Html.TextBoxFor(x => x.NewDescription2, new { @class = "form-control" })
+            </div>
+            <div class="form-group mb-3">
+                @Html.Label("Haber Açıklaması Sağ Alt")
+                @Html.TextBoxFor(x => x.NewDescription3, new { @class = "form-control" })
+            </div>
+            <div class="form-group mb-3">
+                @Html.Label("Haber Açıklaması Orta")
+                @Html.TextBoxFor(x => x.NewDescription4, new { @class = "form-control" })
+            </div>
+         
 
             <div class="form-group mb-3">
                 @Html.Label("İçerik Üreticisi")

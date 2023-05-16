@@ -17,6 +17,10 @@ namespace EntityLayer.Concrete
         public string NewPath { get; set; }
         [StringLength(500)]
         public string NewDescription { get; set; }
+        public string NewDescription1 { get; set; }
+        public string NewDescription2 { get; set; }
+        public string NewDescription3 { get; set; }
+        public string NewDescription4 { get; set; }
         public bool NewStatus { get; set; }
         public DateTime NewCreationDate { get; set; }
 

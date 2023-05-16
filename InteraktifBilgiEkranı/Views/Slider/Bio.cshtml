@@ -14,8 +14,80 @@
     <link rel="shortcut icon" href="../favicon.ico">
     <link href="~/light/myCss/default.css" rel="stylesheet" />
     <link href="~/light/myCss/component.css" rel="stylesheet" />
+    <style>
+        .description-container {
+            text-align: center;
+            font-size: 40px;
+            background-color: none;
+            color: white;
+            position: absolute;
+            top: 750px;
+            left: 100px;
+            color: white;
+            overflow-wrap: break-word;
+            /* Diğer stil özellikleri  sol alt*/
+        }
 
+        .description-container1 {
+            text-align: center;
+            font-size: 40px;
+            background-color: none;
+            color: white;
+            position: absolute;
+            top: 50px;
+            left: 100px;
+            color: white;
+            overflow-wrap: break-word;
+            /* Diğer stil özellikleri SOL ÜST */
+        }
+
+        .description-container2 {
+            text-align: center;
+            font-size: 40px;
+            background-color: none;
+            color: white;
+            position: absolute;
+            top: 50px;
+            right: 100px;
+            color: white;
+            overflow-wrap: break-word;
+            /* Diğer stil özellikleri SAĞ ÜST */
+        }
+
+        .description-container3 {
+            text-align: center;
+            font-size: 40px;
+            background-color: none;
+            color: white;
+            position: absolute;
+            top: 750px;
+            right: 100px;
+            color: white;
+            overflow-wrap: break-word;
+            /* Diğer stil özellikleri SAĞ ALT */
+        }
+
+        .description-container4 {
+            text-align: center;
+            font-size: 40px;
+            background-color: none;
+            color: white;
+            position: absolute;
+            top: 380px;
+            left: 775px;
+            color: white;
+            max-width: 450px; /* Metnin en fazla bu genişlikte görüntülenmesini sağlar */
+            overflow-wrap: break-word;
+            /* Diğer stil özellikleri  ORTA */
+        }
+
+        .carousel-item.active {
+            /* Görüntünün parlaklık ayarı */
+            filter: brightness(150%);
+        }
+    </style>
 </head>
+
 <body>
     <div class="container">
         <div class="main">
@@ -26,9 +98,11 @@
                     {
                         <li>
                             <img src="@item.NewPath" alt="" />
-                            <div class="flex-caption">
-                                <h3>@item.NewDescription</h3>
-                            </div>
+                            <div class="description-container"><a>@item.NewDescription<i></i></a></div>
+                            <div class="description-container1"><a>@item.NewDescription1<i></i></a></div>
+                            <div class="description-container2"><a>@item.NewDescription2<i></i></a></div>
+                            <div class="description-container3"><a>@item.NewDescription3<i></i></a></div>
+                            <div class="description-container4"><a>@item.NewDescription4<i></i></a></div>
                         </li>
                     }
                 }
